@@ -1,0 +1,36 @@
+﻿Taking Images on JENCO Microscope
+
+
+Written by Brooke Pohlman 6/2/2022
+
+
+*Note: Directions are written for the following model, but can be loosely applied for the AmScope model in the lab as well - 
+
+
+Microscope Model: Jenco Stereo Microscope
+Camera Model: OPTEC USB2 Digital Video 500M
+
+
+You will need: 
+* JENCO Microscope
+* JENCO Microscope Camera attachment
+* White power adapter for Camera
+* Mote’s Dell Latitude laptop (in the CHaD lab)
+* Optional: Flash Drive
+
+
+1. Follow instructions listed in “NOAA Settlement Tiles: Microscopy Instructions” to set-up your workstation for viewing settlement tiles. 
+2. Once you have found something to take a picture of, focus and center the object as clear as possible in your field of view, using the dials to adjust. 
+3. Attach the camera to the microscope. It slides into the lens behind the eye pieces and sticks out of the top.
+4. Turn on the Dell Latitude laptop located by the 3D scanner on and plug the camera into the computer’s USB port. 
+5. Open USB 2.0 Camera Viewer on the Desktop screen. Its thumbnail looks like a computer lens. 
+6. On the “Load” pop up, select “Cancel” to start a new project. 
+7. Ensuring the object is ready in your field of view, switch the microscope into Camera view, using the metal switch on the back of the head of the microscope, below the camera. 
+8. Select the Preview button ▶ at the upper left corner of the screen in order to see the live video footage. Now you should be able to view what is under the microscope on the computer software. 
+9. Use the right dial on the base of the microscope to adjust light settings on the microscope and the large tension knobs in the back to adjust the height of the microscope for an ideal image. 
+10. To take a picture select “Snap” (camera thumbnail). Ideally, take 2-3 images to ensure correct focus and field of view. Micro-adjust with each time, if necessary. 
+11. Image should appear in the left hand tool panel. 
+12. To rename the image, right click on the photo in the left hand toolbar and select “Rename.”
+13. To save the image, right click the photo in the left hand toolbar. Click “Save As.”  Select the file location, and name the image in “File Name.” Click “Save.” 
+14. Repeat steps 9-13  for remaining photos or samples. 
+15. Ensure all images are saved before exiting the program.

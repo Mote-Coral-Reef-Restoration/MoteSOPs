@@ -1,0 +1,22 @@
+﻿NOAA Settlement Tiles: Microscopy Instructions
+
+Written by Brooke Pohlman 6/2/2022
+
+
+You will need: 
+* Microscope (JENCO or AmScope is what we have at the lab)
+* A computer for recording data
+* Settlement Tiles (located in Dive Locker)
+* Optional: Microscope Camera 
+
+
+1. Prepare your microscope and spreadsheet. Take off the protective plastic cover, plug in, if not already, and turn on the light source if needed. Have a computer ready with the “BenthicSettlementDatasheet” file opened up and ready to record. 
+2. Record the identifying tile number from the front of the ziploc bag into the “idNumber” column. Ex. 101-1
+3. Place the tile under the microscope. Most tiles have “USA '' printed in the center. Use this text to orient your tile the right direction, so that it is read the right way up in case you lose your orientation. Adjust the microscope as needed. You can push the scope closer to the tile, adjusting with both dials on the side of the scope to bring into focus. Viewing field covers approximately 2 rows of ribbing on the tile. Use these to orient yourself. 
+4. Starting at the top left corner of the tile, slowly move the tile across the surface, reading left to right, while viewing in the scope. When you reach the right side border, move down two more rows directly below. From there, read right to left, creating a back and forth “S” motion so as to not miss any area of the tile. 
+5. When you are done viewing the entire tile, record the data in the spreadsheet. The datasheet should autosave as a Google Drive file. Record “yes” or “y” if there are coral recruits in the “recruitPresence” column, or “no” or “n” if not.
+6. Record number of coral recruits, if any, into the “quantity” column. If not, enter “0.”
+7. Record special notes, if any, into the “notes” column. For example, if any settlement tiles are cracked or broken. 
+8. Place the tile back in its ziploc bag when finished, in order to keep track of its correct label. Keep tiles separated into “to-do” and “done” piles. 
+9. Repeat steps 2-8 for each benthic settlement tile. 
+10. When you are finished, clean up your workstation and put away the microscope. Turn the microscope and any light sources off, and unplug it. Wipe the objective lens clean with a kim-wipe if needed. Place the dust cover over the microscope and return settlement tiles.

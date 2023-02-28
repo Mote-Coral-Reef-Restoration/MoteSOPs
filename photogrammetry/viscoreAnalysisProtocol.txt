@@ -1,0 +1,253 @@
+Mote Viscore Guide:
+
+Below is the workflow for the analysis of 3D dense point clouds using Viscore.
+
+The majority of the steps can be found in detail in the Guide To Viscore. This just details the steps that we use for our analyses.
+
+
+------------------------------
+Loading Viscore File:
+
+1. Export point data out of SfM project
+  a. If using Agisoft Photoscan/Metashape, Export points
+  b. File format: Stanford PLY
+  c. Use local coordinates (m)
+  d. Source data: Dense cloud
+  e. Check point colors and point normal
+  f. Dense cloud must have no scaling or referencing if using camera pose data
+      i. To remove any referencing before export, in Photoscan/Metashape right click on the chunk and select ‘Reset Transform’
+
+2. Convert *.PLY to Viscore file format
+  a. When you convert the *.PLY two output items will be created in the same directory as the input *.PLY, and will automatically have the same name as the input *.PLY, so it is recommended to place the *.PLY file in a new folder
+  NOTE: FILE NAMES MUST NOT INCLUDED ANY . OTHER THAN THE FILE FORMAT eg. name_is_this.ply NOT name.is.this.ply
+  b. Two items that will be created include:
+      i. Project file: Project-name.vml
+      ii. Project subfolder: Project-name\
+        1. Index file index-XXXXXX.xml
+        2. Many *.ptdata, *.xml, *.kdm, and *.kd.xml files
+        3. **If you are missing this folder, you have no point data and therefore no point cloud**
+        4. Tagged data is saved directly onto *.ptdata files, as opposed to most other data which is saved under auxiliary files
+  c. Drag and drop *.PLY file onto “vc5prep-goldi-slowply.bat” located under c:\vid
+
+3. Export camera poses from Agisoft Photoscan/Metashape
+  a. This also saves specific file paths for each image
+  b. Ctrl+R (Run Script)
+  c. Browse, select extract_meta.py (file included with Viscore)
+      i. Can be found under c:\vid\setup\
+      ii. If you are missing this file, please reach out to Nicole (nepeders@ucsd.edu)
+  d. Two files will be created in the same folder as the photoscan project
+    i. [My_project].cams.xml
+    ii. [My_project].meta.json *this file contains the image file paths
+
+For A review of other files and folders please see the Guide To Viscore
+
+------------------------------
+Model setup
+
+1. Change point size (Ctrl+scroll, or bring up the VisOpt option on the HUD) so that the points are an accurate representation of the model, large points inflate the surfaces, and too small of points will have holes in the surface
+  a. Zoom in as close as you can to the surface, and decrease the point size (Ctrl+ scroll down) until you see spaces between points, then slowly increase the point size until those gaps are gone
+  b. **Making your point size very large very quickly is one of the only ways to crash Viscore**
+
+2. Add color adjustments (as needed)
+  a. Turn colors on
+  b. Recommended (for model at ~10m depth) with auto white balance:
+      i. Rgb: ~1.7 (Red) 1 (Green) 1 (Blue)
+      ii. POW: 0.7 (Red) 1.7 (Green) 1.8 (Blue)
+          1. If colors are washed out and/or blue, it is generally better to increase the green/blue values under power and balance the red under rgb as needed
+      iii. Y: Increase for more brightness overall iv. g: Decrease for more brightness overall
+  c. **Adjust accordingly, color corrections will vary depending on depth, local lighting conditions, camera type, and white balance**
+
+
+------------------------------
+Scaling the Model
+
+1. Turn scaler on
+  a. If there are any existing scale bar inputs they will appear as pink markers
+
+2. Find two points of know distances (scale bars, long measurements, etc.) and place markers (Alt+middle click) on each point
+  a. Fixed features are preferable to ensure the most accurate scaling
+  b. Ensure placed markers are attached to a point on the point cloud, see section Markers for guidance on proper marker usage
+3. Click “add ####”
+
+4. Change the value to the measured distance between the two markers by scrolling to change the input value
+
+5. Repeat until all scale inputs have been added
+
+6. Alternatively, once all scale bars have been added, scale table can be used (see Appendix B, Web Applets for the link) to input scale bar values
+
+------------------------------
+Orient the Model
+
+1. Place markers (Alt+middle click) on all points where there are recorded depth measurements
+  a. See Markers section for proper use of markers
+  b. There needs to be at least 4 depths inputted to orient the model
+  c. If no depth measurements (or not enough) are available, proxy orientations can be estimated by placing at least 4 markers at locations in the model at the same depth (i.e. a level sand patch), or as close to the same depth as can be visually approximated. Please contact your appropriate Viscore support forum for more assistance.
+
+2. Turn ortho on
+  a. At times after turning ortho on the entire model will not be visible based on the default slice distance
+  b. The slice (red box in right) value denotes the range of depths surrounding the target distance at which the model is visible
+  c. Increase the slice value to bring more of the model into full view
+  d. Alt+scroll will also change the slice value
+  e. Scroll will change the target distance of the center of the slice
+
+3. Turn orient on, and edit on
+
+4. Click << to add selected markers to be used for orientations
+
+5. By default, depths will be set to 10m, hover and scroll to change values in the HUD to recorded depths for each marker
+  a. Alternatively, use the ortho table (see Appendix B – Web Applets) to input the depths
+      i. Under “depth-in” input the depths (in meters) corresponding to each marker
+
+6. Click align in the HUD in Viscore until there are no more adjustments (model moving)
+
+7. Check the orientation by turning ortho off. This will bring up blue (or orange) rays from each marker that are perpendicular to the surface.
+  a. If the rays are pointing in the wrong direction (i.e. below the model) check your depths for any errors. Also check for potentially wrong depth measurements taken on targets that appear to have moved (fallen off a ledge, etc.)
+  b. You can also check the orientation within ortho mode by hitting the arrow keys to turn the model 90 degrees in a respective direction
+
+
+------------------------------
+Link Images
+
+1. Turn cams on
+  a. If cams isn’t available, locate the *.cams and *.meta.json files and ensure they are in the same directory
+  b. Drag-drop either the *.cams or *.meta.json file into the viewer (do not add both, choose one or the other)
+  c. After drag-drop, the *.cams and *.meta.json will be copied into the *.vml directory
+
+2. Turn drape on
+
+3. Double middle-click on an area of the model to pull up an image covering that area
+
+4. If images have moved directories from that indicated in the *.meta.json file, the draped image will appear as a checkerboard
+
+5. Navigate to any image file in the image set and drag-drop the file into the view to link the images
+
+
+------------------------------
+Virtual Point Intercept (VPI)
+
+SETUP
+
+1. Turn ortho on and orient on
+  a. If edit is on, turn it off
+  b. Click go to make sure you are viewing the proper orientation based on depths
+
+2. Turn pqs on, center plot area in full view
+
+3. Click make quad
+
+4. Adjust quad position
+  a. Use right click-drag to adjust the center point (C)
+  b. Use right click-drag on TR in the top right corner of the box to rotate
+
+5. Adjust quad size by scrolling over quad-dim, which will be the longest diameter of your rectangle
+  a. For plot areas that are not square, adjust the aspect ratio as needed
+
+6. Change the number of points to be sampled by scrolling over count number
+  a. The point number will be the estimated number of points to be placed in your rectangle
+      i. Regardless of the size of the model or project, we are aiming for ~25 points/m^2
+  b. Note that the defined number of points is an estimate, points which land on holes in the model or the edge of the box (along the line) will be dropped from the final sample, so there may be less points sampled than originally indicated.
+
+7. Click preview and make sure the full quad and points are in view
+  a. If you are opening a file that already has a quad box and points made, preview is the easiest way to get back to the view of the box
+  b. Points are placed based on the current view of the model, i.e. if you can’t see it, there won’t be a point placed there
+      i. This is especially relevant when ortho is on and the width of the slice is small enough to visually cut off parts of the model, so expand your slice width as needed
+
+8. Once you are ready to sample the points, click prepare, it will tile through the model sampling points
+
+9. If you need to start over and make a new box or set new points (deleting any existing VPI data), select replace quad and begin at step 4
+
+10. If you ever need to make multiple boxes, make an appropriately named folder in the .pq folder and hide all the files in that folder.
+
+DESIGNATING POINTS
+
+Once the box is set up and the points have been placed, you will use a browser applet to designate each point.
+
+1. Navigate to the GitHub > Project > code and drag and drop the qclasses.json from the GitHub into the .pq folder and click "replace"
+  a. The default classes for this are pacific species, the qclasses.json folder within the GitHub is AGRAA specific. If different needs arise, this can be modified as needed.
+
+2. In chrome, open http://localhost:9090/jsd/pq.xhtml#0/1/[username]
+  a. #number is the point number
+      i. You can input a specific point number to view that point
+  b. The following number between backslashes (/#/) is the image number (in sequence) for that point
+  c. Change /username to keep work associated with each person
+      i. Point designations will be saved under a file named for a particular user, meaning that multiple users can designate the same points
+
+3. PQs must be on in the main Viscore viewer to view and label points
+
+4. Points are designated by clicking a primary button designation
+  a. Single click for designation only
+  b. Double click a primary button to designate and automatically proceed to the next point
+  c. Button names are abbreviated, hover over a button to view its full name
+  d. To add secondary designations, single click on each of the appropriate morphological or bleaching categories before double clicking the primary designation
+      i. Secondary designations are optional
+  e. Right click+scroll will flip through the various images for that point. It is recommended to scroll through a few images for each point to get the best look
+      i. If the point appears to move around a lot, try to identify the true location of each point which can be identified as the point location that is consistent across images. The movement often happens if a point’s true location is on a spot with an obstructed view by something in the foreground of the image
+      ii. Extreme movement of the points should be minimal. If you cannot find a single consistent location of the point, there is likely an issue with the image orientation\references, or alignment.
+  f. If window slightly darkens, the next image/point is still loading and will be indicated in the bottom right of the window. If not progressing after a period of time, refresh window (F5)
+
+5. Other controls
+  a. Scroll to zoom in and out
+  b. Left click and drag to move image
+  c. Right click and drag to rotate image
+  d. Change the size of the display labels by zooming in/out in the browser window
+
+6. Layout
+  a. see the Guide to Viscore for layout information
+
+7. Review points
+  a. Points left blank or designated review can be easily cycled through be clicking on next blank
+  b. To filter though and review points of a designated class, add ${“class_filter”:[“designation”]} to the web address
+      i. Use the exact name as it appears on the button list, you can add multiple class filters by listing then within the brackets separated by a comma
+      ii. Ex: https://localhost:9099/jsd/pq.xhtml#107/1/Nicole${"class_filter":["porites","monti pora"]}
+
+EXPORT data
+
+Once you have designated all points, data can be exported using the web applet
+
+1. If you only want to export the primary designations, go to
+  a. http://localhost:9090/jqm/spread.html#pqs/all/username
+      i. Pay attention to proper punctuation and capitalizations with usernames
+
+2. To export secondary designations, go to
+  a. http://localhost:9090/jqm/spread.html#pq/1/2/username
+      i. Will organize by designations as rows, first set of secondary categories as columns
+  b. http://localhost:9090/jqm/spread.html#pq/1/3/username
+      i. Will organize by designations as rows, second set of secondary categories as columns
+
+3. Export file as csv
+  a. In the bottom right corner (you may need to scroll down) click on csv
+  b. This will create a csv file in the *.pq folder with the spreadsheet
+
+
+  ------------------------------
+  Rugosity
+
+1. Turn ortho on
+
+2. Turn orient on
+
+3. To position the sampling box in the same location as the VPI sampling box, turn pqs on and click preview
+
+4. Turn rugo on, and select make rugo (or add new if you have already made a rugosity box and want to make another). The default box will have 10mx10m dimensions, and if you used preview in step 3, the box will have the same center point as the VPI box, but dimensions may vary if the final VPI box was not of the default size
+
+5. Move your box if needed
+  a. Right click-drag the center (C) marker to adjust the position
+  b. Right click-drag the TR marker to rotate the box
+  c. If you wanted to replicate the same box with VPI and did step 3, the box should overlay with the pq box so long as they are the same dimensions
+
+6. Change the dimensions of the box to your desired transect length
+
+7. Change the aspect ratio if you desire a rectangular box
+
+8. Change the number of lines to the number of transects you want to simulate
+  a. Below the lines, you will see an approximation of the line spacing according to your box dimension and number of lines
+
+9. Select the number of points along that transect
+  a. Below points you will see the distance between points based on your box dimensions and the number of points
+
+10. Once you are ready to make the lines, click prepare
+  a. The lines will slowly start to appear along each transect
+  b. Wait for all lines to be made to ensure all data is exported
+  c. There will now be a .rugo folder containing the rugosity data
+  d. The r#-lines.csv contains the coordinates needed for rugosity
+  e. It will take a few minutes to render, have patience!

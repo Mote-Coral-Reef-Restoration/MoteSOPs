@@ -1,0 +1,43 @@
+NOAA Viscore VPI Protocol
+Modified from Sandin et al.'s 'Guide to Viscore' by Ian Combs (icombs@mote.org)
+Last Updated: Ian Combs 5/6/21
+
+------------------------------
+Model set up
+
+1. Make sure your model is aligned and oriented
+  a. To check for scale turn scaler on in Viscore and look for pink scale bars
+  b. To check for orientation turn ortho on and then orient. Turn ortho off and look for blue or orange rays from each marker
+2. Turn ortho on and orient on
+  a. make sure the width of the slice in ortho is large enough to show the whole model
+3. Turn pqs on
+4. Click make quad
+5. Adjust quad position, make sure quad is within the 10x10m space, use white calibration tiles on corners to ensure quad is encapsulating the full 10x10m, if one or two are outside the quad that's ok
+  a. Use middle click to adjust the center point (C)
+  b. Use middle click on the TR in the top right corner of the box to rotate
+  c. If working with time series, position the box in line with permanent markers to maximize likelihood of overlap in resurveys
+6. Make sure the following settings are correct:
+  a. quad-dim: 10.0m
+  b. quad-aspect: 1.000
+  c. count: 2500
+7. Click preview and make sure the full quad and points are in view
+8. Click prepare
+9. If you need to start over, make a new box, or set new points, delete all files in the .pq folder (or move files to another folder), refresh and start over
+
+
+------------------------------
+Designating points
+After the box is established and points are laid out, you will use a browser applet to designate each points
+
+1. Navigate to GitHub/photogrammetryNOAA/photogrammetry/code/qclasses.json, copy and paste that qclasses.json file into the *.pq folder within your Viscore folder and click yes when Windows asks you if you want to replace that file.
+  a. Viscore's default qclasses.json is largely Pacific species and the qclasses.json in the GitHub is custom built for the NOAA project
+2. In chrome, open http://localhost:9090/jsd/pq.xhtml#0/1/username
+  a. #number is the point number
+    i. You can put specific point numbers in if you wish to jump to or review a specific point
+  b. The following number is the image number (in sequence) for that point
+    i. Viscore will link each point to every image in which it appears
+  c. Change /username to keep work associated with each person
+    i. Point designations will be saved under a file named for a particular user, meaning that multiple users can designate the same points
+Note: It would be wise to save these applets into a folder/bookmark in Chrome for easy navigation
+3. pqs must be turned on in the main Viscore viewer (not chrome) to point count in the applet
+4.

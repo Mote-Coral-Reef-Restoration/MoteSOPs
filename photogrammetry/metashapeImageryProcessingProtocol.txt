@@ -1,0 +1,31 @@
+Image Processing Pipeline For Large-Area Imagery
+
+
+------------------------------
+Organize and Filter Imagery
+
+Once cameras are returned from the field, dried, and removed from their housings place images in the proper folder corresponding to the date, site, and camera.
+
+Creating a 3D model in Metashape occurs in three steps with some, but minimal QA/QC steps between.
+
+1. *Filter Photos*
+  a. Load images into Metashape by dragging and dropping images from your folder.
+    i. If your photos are using different cameras, load the first camera, right click on the cameras >add camera group> rename to the name of your camera. These camera groups can be renamed
+
+2. *Align Images* Go to Workflow -> Align Photos
+  a. Accuracy: High
+  b. Generic Preselection: No
+  c. Reference Preselection: No
+  d. Key Point Limit: 5,000
+  e. Tie Point Limit: 0
+  f. Constrain Features by Mask: No
+  g. Adaptive Camera Model Fitting: Yes
+
+
+
+3. *Build Dense Cloud* Go to Workflow -> Build Dense Cloud
+  a. Quality: High
+  b. Depth Filtering: Mild
+  c. Reuse Depth Maps: No
+
+4. *Cleaning Dense Point Cloud* Go to
