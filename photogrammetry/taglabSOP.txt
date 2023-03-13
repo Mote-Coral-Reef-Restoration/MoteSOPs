@@ -1,0 +1,78 @@
+TagLab Analysis Protocol
+Written By: Gabrielle D'Alonzo (gdalonzo@mote.org)
+Last Updated: Ian Combs 02/28/2023
+
+------------------------------
+
+The documentation on the TagLab website (https://taglab.isti.cnr.it) and GitHub (https://github.com/cnr-isti-vclab/TagLab) provided by developers are great resources that lay out the basic steps, commands, and tools to navigate TagLab. 
+These resources also include some potentially relevant troubleshooting tips and tricks. 
+Any confusion on program usage not addressed in this protocol may be resolved there.
+
+
+------------------------------
+Project Set-Up
+
+
+1.	Open TagLab using either the desktop shortcut or the TagLab.py file located in your local GitHub/TagLab folder.
+
+2.	To load an image, select Project>Add New Map.
+
+3. Fill out the relevant fields
+	a. Map Name: What you want to call that specific image
+		i. Mote uses the following naming convention YYYY_MM_DD_Site-Name.fileFormat ex: 2022_09_21_Q-9.tiff
+	b. RGB Image: either type in the file path to your image or click the symbol to the right "..." and navigate via your file browswer
+	c. Depth Image: do the same thing if you have a Digital Elevation Model (DEM) coregistered to your image
+	d. Acquisiton Date: Fill in the date for when the imagery was captured format: YYYY-MM-DD
+	e. Pixel size (mm): How long one pixel is (mm), this can also be done post-hoc using the measure tool
+
+	Note: Steps a, b, and d are necessary in order to start your project. 
+
+4. Click Apply.
+
+5. Repeat this for every image you wish to analyze in your particular project
+
+	Note: Our projects tend to include a single site over multiple timepoints and we add subsequent timepoints to the project as they enter the analysis pipelines. 
+
+6. Save the project by navigating to File>Save As and then save the project within the "TagLab" folder of whatever project you are working on
+
+	Note: This is Mote specific, but it is wise to save your TagLab Project in the same folder as whatever images are associated with it, if there are multiple images within multiple folders, make sure the TagLab Project is a level above all of the folders that contain images for that specific project.
+
+7. You should now be able to see your imported image on screen and are ready to begin analyzing your image. 
+
+
+------------------------------
+Image Analysis
+
+
+1. To set the dictionary, navigate to Project>Labels Dictionary Editor... and select Load.
+	a. Navigate to where you are storing your dictionary
+	b. Alternatively, you can build your own
+		i. Select an RGB color
+		ii. Add the label name
+		iii. select "Add"
+		iv. Repeat this for as many entires as you need, alternatively, this can be done piecemeal while you segment
+
+2. Since scale was not set at the inception of the project, before we begin segmenting we must set the scale. Navigate to the Measure Tool, ninth on the list in the left hand tool bar (Shortcut: 9)
+	a. If you know your mm/pixel measurements you can input that manually
+	b. If not, select "Set new pixel size"
+	c. Use your cursor to select two ends of a known distance
+		Note: We use scale bars with their centers spaced 50cm apart
+	d. Enter your known distance (in mm) and select OK
+	e. Measure that known distance, or another known distance using the same tool to double check that your scale was set correctly
+
+3. To set your working area navigate to Project>Set Working Area
+	a. Select the square with a cursor (to the left of the "Set" button)
+	b. Drag the square to encompass your working area
+	Note: We delineate our working areas using markers/pins
+	Note: You can enter your working area manually using local coordinates, but this is not recommended.
+
+
+4. You can then use the Create Grid tool to make a grid to place over the working area. This breaks the whole ortho down into more manageable pieces for more thorough segmentation. 
+	a. In addition, Active/Deactivate Grid Operations allows for boxes of the grid to be marked as complete, incomplete, or empty to help track segmentation progress through the whole ortho.
+
+5. Begin segmenting your image
+	a. A list of the tools and functions can be found here (https://taglab.isti.cnr.it/docs)
+	b. We tend to use the Positive/negative clicks segmentation tool, the 4-clicks segmentation tool, and the Edit Border tool the most (in that order)
+
+6. Once the image is segmented, navigate to File>Export and export your data in your preferred format
+	Note: We normally export as a Data Table for downstream statistical analysis and data visualization in R. However, you might find other formats more or less useful depending on your research questions. 

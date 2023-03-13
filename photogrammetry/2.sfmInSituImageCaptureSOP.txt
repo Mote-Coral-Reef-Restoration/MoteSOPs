@@ -1,0 +1,49 @@
+Mote Marine Laboratory in situ Image Capture Structure-from-Motion Standard Operating Procedure 
+Written By: Ian Combs (icombs@mote.org)
+Last Updated: Ian Combs 03/13/2023
+
+Contained in this document is the Standard Operating Procedure for in situ image capture of outplant sites as part of Mote Marine Laboratory's photogrammetric surveying 
+------------------------------
+Establishing A Site
+
+
+A. ACER: Acropora cervicornis (ACER) outplant events are typically conducted on reef habitat that contains a highly rugose ledge which transitions to more monotypic hardpan. We will refer to this ledge as the “front” of the outplant area while the hardpan is the “back”.
+
+Floats and scale bars will be used to mark the back boundary of the outplant area (floats), each array of outplants (scale bars), and to provide scale for the downstream products (scale bars). 
+
+i. Floats: Floats should be placed ~1m away from the last outplant in each array and create the back boundary of the outplant area. They are solely used for navigational purposes so the surveyor has visual cues of the “back” of the outplant area (with the ledge providing visual clues for the front).
+
+ii. Scale bars: Scale bars should be placed between each array, approximately half way between the front and back of the outplant area. It is important that nothing is obscuring the scale bars (e.g. gorgonians, sponges, etc) so they can be clearly photographed from above.   
+
+B. APAL: Acropora palmata (APAL) outplant events are typically conducted on spur-and-groove habitat. An outplant event may occur over an entire spur, or partial spur. Similar to ACER, you will use the edge of the spur as the “front.” If you are outplanting a whole spur, the “front” and “back” will be the end of the spur and arbitrary (usually the “front” will be the direction in which you start image capture). If you are outplanting a partial spur, the “front” of the outplant area will be the spur edge while “back” will be the where you stop outplanting on that spur.  
+
+Floats and scale bars will be used to mark the back boundary of the outplant area (floats), each array of outplants (scale bars), and to provide scale for the downstream products (scale bars). 
+
+i. Floats: If outplanting a partial spur, floats should be placed ~1m away from the last outplant along the back of the spur. They are solely used for navigational purposes so the surveyor has visual cues. If outplanting a whole spur, floats may not be necessary. 
+
+ii. Scale bars: Scale bars should be placed throughout the image capture area. Unlike ACER, genotypes are not as easily delineated with an APAL outplant event. So scale bars should be placed throughout the scene in spots free of overhead obstructions so they can be clearly photographed from above and not covering any proposed or existing outplants. 
+
+IMAGE CAPTURE
+Briefly, image capture for outplant sites use two GoPros, set 60cm on a custom PVC frame. GoPros are set to capture 1 photo/sec. More in-depth GoPro setup instructions can be found here: https://github.com/icombs2017/nfwfEdrMonitoring/blob/main/protocols/GoProSetUp_README. 
+
+When you are in-water and ready to begin, simply HOLD the capture button (red circle on top of GoPro). The GoPro will turn on and you will begin to see a red LED flashing in the top left corner of the GoPro and a red dot on the LCD screen with a number counting up sequentially.
+
+Note: If you see a time stamp counting up (e.g. 0:01) you are filming, press the capture button again to turn off the GoPro and HOLD it to start TimeLapse Mode.
+
+Once you have finished capturing your scene, simply press the Capture button again to turn the GoPros off.
+
+Note: You will see the screen illuminate and it will display "Powering off"
+
+A. Swim 1-1.5m from the bottom
+
+B. Use the floats and markers as guides, for the floats, make sure you swim to the floats before you turn around. Doing so ensures that you capture all of the outplanted coral. 
+
+C. Hold the frame level
+
+D. When turning around, rotate around the inner most GoPro, this ensures overlap between passes. 
+
+E. Maintain a slow swimming speed, this ensures sufficient overlap between images
+
+F. Swimming pattern should consist of swimming from the front of the outplant area to the back, turning around (as described in step D) and swimming from the back to the front. Repeat this throughout the outplant area. Once completed, rotate 90 degrees and swim two or three passes in the other direction.
+
+G. Record the depth of your scale bars as well as the marker number they are comprised of. It is also helpful if you draw a map of how the area was set up (this is particularly helpful for APAL outplants). Note: this can be done before, after, or during image capture depending on the buddy team and other work being conducted that day. 

@@ -54,7 +54,8 @@ Model setup
       i. Rgb: ~1.7 (Red) 1 (Green) 1 (Blue)
       ii. POW: 0.7 (Red) 1.7 (Green) 1.8 (Blue)
           1. If colors are washed out and/or blue, it is generally better to increase the green/blue values under power and balance the red under rgb as needed
-      iii. Y: Increase for more brightness overall iv. g: Decrease for more brightness overall
+      iii. Y: Increase for more brightness overall 
+      iv. g: Decrease for more brightness overall
   c. **Adjust accordingly, color corrections will vary depending on depth, local lighting conditions, camera type, and white balance**
 
 
