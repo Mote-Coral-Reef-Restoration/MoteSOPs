@@ -5,7 +5,7 @@ A repository to house all of the Structure-from-Motion photogrammetry and Large-
 ### version: March 14, 2023
 
 ### Sections of this Repository:
-[Large-Area Imaging Standard Operating Procedures](https://github.com/icombs2017/MoteSOPs/tree/main/photogrammetry)<br>
+[Large-Area Imaging Standard Operating Procedures](https://github.com/icombs2017/MoteSOPs/tree/main/largeAreaImaging)<br>
 [Miscellaneous Standard Operating Procedures](https://github.com/icombs2017/MoteSOPs/tree/main/miscellaneousProtocols)<br>
  
 
