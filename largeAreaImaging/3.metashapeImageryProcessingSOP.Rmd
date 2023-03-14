@@ -1,0 +1,116 @@
+---
+title: "Large-Area Image Processing Protocol"
+author: 'Written by: Ian Combs (icombs@mote.org)'
+output:
+  html_document:
+    theme: flatly
+    code_folding: show
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
+library(magrittr)
+```
+<!-- if updating, make sure you change name below -->
+### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
+
+<br><br>
+
+## Overview
+
+
+Contained in this document is the Standard Operating Procedure for the imagery processing workflow as part of Mote Marine Laboratory’s photogrammetric surveying.
+The workflow outlined below is designed for the creation of Large-Area imagery products such as 3D dense point clouds and 2D orthomosaics from multiple, overlapping images taken in the field. 
+This protocol is written for [Agisoft Metashape](https://www.agisoft.com/), more specifically the [Agisoft Metashape Professional Edition](https://www.agisoft.com/features/professional-edition/). 
+However, most of these functions and features are available in the [Standard Edition](https://www.agisoft.com/features/standard-edition/).
+Steps and functions within this protocol that are ONLY available in the Professional Edition will be denoted *in italics*.
+Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/icombs2017/MoteSOPs).
+
+# Generate Dense Point Cloud 
+***
+Creating a dense point cloud in Metashape occurs in two main steps: Image Alignment and Dense Point Cloud Generation with a few, but minimal, QA/QC steps along the way.
+
+### Filter Photos
+
+1. Load images into Metashape by dragging and dropping images from your folder.
+      * If your photos are using different cameras, load the first camera, right click on the cameras &rarr; add camera group &rarr; rename to the name of your camera 
+    * Repeat this for your remaining cameras
+    
+**Note:** We use 2 cameras for the majority of our projects
+
+### *Detect Markers*
+
+1. Metashape provides coded targets, or printed markers that can be placed in the scene before photos are taken and could be used as reference points for coordinate system and scale definition, or as a valid matches between images to help camera alignment procedure during image alignment
+
+2. Navigate to Tools &rarr; Markers &rarr; Detect Markers
+3. Sometimes markers are incorrectly detected, check your markers in your Workspace pane
+    * Cross-reference your metadata sheet with the displayed markers
+    * If your metadata sheet isn't readily available, an alternative method is to right click on each marker and select Filter Photos by Marker
+    * Check each marker to make sure the software is actually selecting a marker/scale bar
+
+**Note:** Past experience has shown that sometimes Metashape assigns markers to random, complex shapes (in our case, zooanthids) by checking the photos for each marker this becomes glaringly obvious and ultimately is not a drastic increase in time
+
+### Align Images 
+
+1. Navigate to Workflow &rarr; Align Photos
+    * Accuracy: High
+    * Generic Preselection: No
+    * Reference Preselection: No
+    * Key Point Limit: 5,000
+    * Tie Point Limit: 0
+    * Constrain Features by Mask: No
+    * Adaptive Camera Model Fitting: Yes
+
+### Build Dense Cloud 
+
+1. Navigate to Workflow &rarr; Build Dense Cloud
+    * Quality: High
+    * Depth Filtering: Mild
+    * Reuse Depth Maps: No
+    * Calculate point confidence: Yes
+<br>
+<br>
+2. Cleaning Dense Point Cloud 
+    * A quick and simple way to clean up your point clouds is by removing the lowest confidence points, to do this navigate to Tools &rarr; Dense Cloud &rarr; Filter by Confidence
+    * Set Confidence Range
+      * Min: 0
+      * Max: 1
+    * This will show only the points that have the LOWEST confidence values, navigate to Model &rarr; Rectangle Selection/Circle Selection/Free-Form Selection
+    * Highlight your entire dense cloud
+    * Press 'Delete'
+    * Navigate to Tools &rarr; Dense Cloud &rarr; Reset Filter
+    * Your dense clouds should be far less noisy, however you may wish to continue to edit your dense clouds, removing erroneous points. If so, re-select your preferred selection tool (Rectangle, Circle, or Free-form)
+    * Select points you wish to remove
+    * Press 'Delete'
+    * Repeat steps until you are satisfied with your model
+    
+**Note:** We find that Free-Form Selection is the most flexible and useful
+
+
+
+# Generate Orthomosaic
+***
+**Note:** Orthomosaics can only be generated using Agisoft Professional Edition 
+
+### Create Mesh
+1. Navigate to Workflow>Build Mesh
+    * Source data: Sparse Cloud
+    * Surface type: Arbitrary (3D)
+    * Face count: 1,000,000
+
+**Note:** Face count can be altered to increase/decrease the quality of the mesh if the quality of the final orthomosaic is lacking
+
+### Create Orthomosaic
+1. Navigate to Workflow>Build Orthomosaic
+    * Type: Planar
+    * Projection Plane
+      * Top XY OR Markers (if capable)
+    * Surface: Mesh  
+    * Blending Mode: Mosaic
+    * Max. dimensions (pix): 20,000
+
+
+      

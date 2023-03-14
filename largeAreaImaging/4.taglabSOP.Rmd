@@ -1,0 +1,105 @@
+---
+title: "Mote Marine Laboratory TagLab Analysis Standard Operating Procedure"
+author: "Written by: Gabrielle D'Alonzo (gdalonzo@mote.org)"
+output:
+  html_document:
+    theme: flatly
+    code_folding: show
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
+library(magrittr)
+```
+<!-- if updating, make sure you change name below -->
+### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
+
+<br><br>
+
+## Overview
+
+Contained in this document is the Standard Operating Procedure for the analysis of large orthophotos/orthomosaics using the open-source software TagLab.
+The preexisting documentation for TagLab that can be found on their  [website](https://taglab.isti.cnr.it/) and [GitHub](https://github.com/cnr-isti-vclab/TagLab) are great resources that lay out the basic [installation](https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab), and [tools](https://taglab.isti.cnr.it/docs) to successfully navigate TagLab. 
+These resources also include some potentially relevant [troubleshooting tips](https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab). 
+Any confusion on program usage not addressed in this protocol may be resolved there. Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/icombs2017/MoteSOPs).
+
+
+# Project Set-Up
+***
+
+1.	Open TagLab using either the desktop shortcut or the TagLab.py file located in your local GitHub/TagLab folder.
+
+2.	To load an image, select Project &rarr; Add New Map.
+
+3. Fill out the relevant fields
+	* Map Name: What you want to call that specific image
+		* Mote uses the following naming convention YYYY_MM_DD_Site-Name.fileFormat ex: 2022_09_21_Q-9.tiff
+	* RGB Image: either type in the file path to your image or click the symbol to the right "..." and navigate via your file browser
+	* Depth Image: do the same thing if you have a Digital Elevation Model (DEM) coregistered to your image
+	* Acquisition Date: Fill in the date for when the imagery was captured format: YYYY-MM-DD
+	* Pixel size (mm): How long one pixel is (mm), this can also be done post-hoc using the measure tool
+
+**Note:** *Map Name*, *Path to RGB Image*, and *Acquisition Date* are necessary in order to start your project. 
+
+4. Click Apply.
+
+5. Repeat this for every image you wish to analyze in your particular project
+
+**Note:** Our projects tend to include a single site over multiple time points and we add subsequent time points to the project as they enter the analysis pipelines. 
+
+6. Save the project by navigating to File &rarr; Save As and then save the project within the "TagLab" folder of whatever project you are working on
+
+**Note:** This is Mote specific, but it is wise to save your TagLab Project in the same folder as whatever images are associated with it, if there are multiple images within multiple folders, make sure the TagLab Project is a level above all of the folders that contain images for that specific project.
+
+7. You should now be able to see your imported image on screen and are ready to begin analyzing your image. 
+
+
+# Image Analysis
+***
+
+1. To set the dictionary, navigate to Project &rarr; Labels Dictionary Editor... and select Load.
+	* Navigate to where you are storing your dictionary
+	* Alternatively, you can build your own
+		* Select an RGB color
+		* Add the label name
+		* select "Add"
+		* Repeat this for as many entries as you need, alternatively, this can be done piecemeal while you segment
+
+2. Since scale was not set at the inception of the project, before we begin segmenting we must set the scale. Navigate to the Measure Tool, ninth on the list in the left hand tool bar (Shortcut: 9)
+	* If you know your mm/pixel measurements you can input that manually
+	* If not, select "Set new pixel size"
+	* Use your cursor to select two ends of a known distance
+	* Enter your known distance (in mm) and select OK
+	* Measure that known distance, or another known distance using the same tool to double check that your scale was set correctly
+
+**Note:** We use scale bars with their centers spaced 50cm apart
+
+3. To set your working area navigate to Project &rarr; Set Working Area
+	* Select the square with a cursor (to the left of the "Set" button)
+	* Drag the square to encompass your working area
+	
+**Note:** We delineate our working areas using markers/pins
+
+**Note:** You can enter your working area manually using local coordinates, but this is not recommended.
+
+4. You can then use the Create Grid tool to make a grid to place over the working area. This breaks the whole ortho down into more manageable pieces for more thorough segmentation. 
+	* In addition, Active/Deactivate Grid Operations allows for boxes of the grid to be marked as complete, incomplete, or empty to help track segmentation progress through the whole ortho.
+
+5. Begin segmenting your image
+	* A list of the tools and functions can be found [here](https://taglab.isti.cnr.it/docs)
+	* We tend to use the Positive/negative clicks segmentation tool, the 4-clicks segmentation tool, and the Edit Border tool the most (in that order)
+
+6. Once the image is segmented, navigate to File &rarr; Export and export your data in your preferred format
+
+**Note:** We normally export as a Data Table for downstream statistical analysis and data visualization in R. However, you might find other formats more or less useful depending on your research questions. 
+	
+	
+	
+	
+	
+	
+	
+	

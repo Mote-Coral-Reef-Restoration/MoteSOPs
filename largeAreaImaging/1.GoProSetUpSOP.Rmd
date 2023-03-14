@@ -1,0 +1,70 @@
+---
+title: "GoPro Configuration for *in situ* Structure-from-Motion Photogrammetry Standard Operating Procedure"
+author: 'Written by: Ian Combs (icombs@mote.org)'
+output:
+  html_document:
+    theme: flatly
+    code_folding: show
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
+library(magrittr)
+```
+<!-- if updating, make sure you change name below -->
+### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
+
+<br><br>
+
+## Overview
+
+Contained in this document is the Standard Operating Procedure for the configuration of GoPro cameras as part of Mote Marine Laboratory's photogrammetric surveying. Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/icombs2017/MoteSOPs).
+
+<br><br>
+
+### **GoPro Settings**
+***
+
+1. You will be using the GoPro Hero 10 Black. The User Manual can be found [here](https://gopro.com/content/dam/help/hero10-black/manuals/HERO10Black_UM_ENG_REVB.pdf)
+
+2. Check that batteries are sufficiently charged and memory card is empty.
+
+3. Ensure that the date and time is accurate.<br>
+    * If time is not correct, navigate to Preferences &rarr; General &rarr; Time, and set the correct time<br>
+    * If date is not correct, navigate to Preferences &rarr; General &rarr; Date, and set the correct date<br><br>
+
+4. Check to see if the memory card is empty. If not, reformat the memory card.  Navigate to Preferences &rarr; Reset &rarr; Format SD card
+
+**Note:** Make sure the data that is on the SD card has already been downloaded somewhere else. Once you reformat the SD card, the data is lost forever.
+
+5. Check to see that QuickCapture is on, navigate to Preferences &rarr; General &rarr; QuickCapture
+
+**Note:** This ensures that you only have to hold the capture button to start TimeLapse (interval)
+
+6. Now ensure that your interval settings are correct. Navigate to Time Lapse and Press the Time Lapse button in the middle bottom of the screen. Click the pencil next to the Time Lapse setting and make sure the you have the following settings selected:
+    * Lens = Wide<br>
+    * Interval = 1s<br>
+    * Format = Photo<br>
+    * Output = Standard<br>
+    * Zoom = 1.0x<br><br>
+
+7. In the same menu, scroll down to ProTune and set the following settings
+    * EV Comp = 0<br>
+    * White Balance = Auto<br>
+    * ISO Min = 400<br>
+    * ISO Max = 1600<br>
+    * Sharpness = High<br>
+    * Color = GoPro<br><br>
+
+8. Place the GoPro in the underwater housing. Now you are ready to begin image capture.
+
+9. When you are in-water and ready to begin, simply **hold** the capture button (red circle on top of GoPro). The GoPro will turn on and you will begin to see a red LED flashing in the top left corner of the GoPro and a red dot on the LCD screen with a number counting up sequentially.
+
+**Note:** If you see a time stamp counting up  (e.g. 0:01) you are filming, press the capture button again to turn off the GoPro and **hold** it to start TimeLapse Mode.
+
+10. Once you have finished capturing your scene, simply press the Capture button again to turn the GoPros off.
+
+**Note:** You will see the screen illuminate and it will display "Powering off"
