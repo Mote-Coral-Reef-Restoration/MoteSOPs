@@ -13,7 +13,7 @@ This repository contains all of the Structure-from-Motion photogrammetry and Lar
 
 1. [GoPro Set Up](https://github.com/icombs2017/MoteSOPs/tree/main/largeAreaImaging/1.GoProSetUpSOP)
 
-2. [**In situ** Image Capture](https://github.com/icombs2017/MoteSOPs/tree/main/largeAreaImaging/2.InSituImageCaptureSOP)
+2. [*In situ* Image Capture](https://github.com/icombs2017/MoteSOPs/tree/main/largeAreaImaging/2.InSituImageCaptureSOP)
 
 3. [Metashape Image Processing](https://github.com/icombs2017/MoteSOPs/tree/main/largeAreaImaging/3.MetashapeImageryProcessingSOP)
 
