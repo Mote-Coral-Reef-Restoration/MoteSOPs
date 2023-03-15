@@ -57,7 +57,7 @@ Briefly, image capture for outplant sites use two GoPros, set 60cm on a custom P
 
 4. Hold the frame level
 
-5. When turning around, rotate around the inner most GoPro, this ensures overlap between passes. 
+5. When turning around, use the inner most GoPro as a pivot point, this ensures overlap between passes. 
 
 6. Maintain a slow swimming speed, this ensures sufficient overlap between images
 
