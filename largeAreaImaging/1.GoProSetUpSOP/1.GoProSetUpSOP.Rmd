@@ -1,5 +1,6 @@
 ---
-title: "GoPro Configuration for *in situ* Structure-from-Motion Photogrammetry Standard Operating Procedure"
+title: "GoPro Configuration for *in situ* Structure-from-Motion Photogrammetry Standard
+  Operating Procedure"
 author: 'Written by: Ian Combs (icombs@mote.org)'
 output:
   html_document:
@@ -8,6 +9,9 @@ output:
     toc: yes
     toc_depth: 3
     toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
 ---
 
 ```{r, setup, include = FALSE}
