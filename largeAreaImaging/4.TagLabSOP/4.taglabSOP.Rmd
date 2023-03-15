@@ -1,7 +1,10 @@
 ---
 title: "Mote Marine Laboratory TagLab Analysis Standard Operating Procedure"
-author: "Written by: Gabrielle D'Alonzo (gdalonzo@mote.org)"
+author: 'Written by: Gabrielle D''Alonzo (gdalonzo@mote.org)'
 output:
+  pdf_document:
+    toc: no
+    toc_depth: '3'
   html_document:
     theme: flatly
     code_folding: show

@@ -1,7 +1,11 @@
 ---
-title: "Mote Marine Laboratory *in situ* Structure-from-Motion Image Capture  Standard Operating Procedure"
+title: "Mote Marine Laboratory *in situ* Structure-from-Motion Image Capture  Standard
+  Operating Procedure"
 author: 'Written by: Ian Combs (icombs@mote.org)'
 output:
+  pdf_document:
+    toc: no
+    toc_depth: '3'
   html_document:
     theme: flatly
     code_folding: show
@@ -15,6 +19,7 @@ knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
 library(magrittr)
 ```
 <!-- if updating, make sure you change name below -->
+
 ### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
 
 <br><br>
