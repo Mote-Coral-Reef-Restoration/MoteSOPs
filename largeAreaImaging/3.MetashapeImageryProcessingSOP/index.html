@@ -12,7 +12,7 @@
 <meta name="author" content="Written by: Ian Combs (icombs@mote.org)" />
 
 
-<title>Large-Area Image Processing Protocol</title>
+<title>Metashape Image Processing Standard Operating Procedure</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1590,15 +1590,16 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Large-Area Image Processing Protocol</h1>
+<h1 class="title toc-ignore">Metashape Image Processing Standard
+Operating Procedure</h1>
 <h4 class="author">Written by: Ian Combs (<a href="mailto:icombs@mote.org" class="email">icombs@mote.org</a>)</h4>
 
 </div>
 
 
 <!-- if updating, make sure you change name below -->
-<div id="last-updated-ian-combs-march-14-2023" class="section level3">
-<h3>Last Updated: Ian Combs, March 14, 2023</h3>
+<div id="last-updated-ian-combs-march-17-2023" class="section level3">
+<h3>Last Updated: Ian Combs, March 17, 2023</h3>
 <p><br><br></p>
 </div>
 <div id="overview" class="section level2">
@@ -1616,6 +1617,18 @@ Edition</a>. Steps and functions within this protocol that are ONLY
 available in the Professional Edition will be denoted <em>in
 italics</em>. Additional Standard Operating Procedures for other aspects
 within the photogrammetric pipeline can be found <a href="https://github.com/icombs2017/MoteSOPs">here</a>.</p>
+<p><br><br></p>
+</div>
+<div id="computing-needs" class="section level1">
+<h1>Computing Needs</h1>
+<hr />
+<p>All steps of this imagery processing pipeline are completed on a
+computer with the following specifications:</p>
+<ol style="list-style-type: decimal">
+<li>CPU - 32 core, 3.69GHz</li>
+<li>RAM - 128GB</li>
+<li>GPU - NVIDIA GeForce RTX 2080Ti <br><br></li>
+</ol>
 </div>
 <div id="generate-dense-point-cloud" class="section level1">
 <h1>Generate Dense Point Cloud</h1>
@@ -1640,6 +1653,7 @@ projects</p>
 </div>
 <div id="detect-markers" class="section level3">
 <h3><em>Detect Markers</em></h3>
+<p><strong>Average time:</strong> 1sec/image</p>
 <ol style="list-style-type: decimal">
 <li><p>Metashape provides coded targets, or printed markers that can be
 placed in the scene before photos are taken and could be used as
@@ -1665,6 +1679,7 @@ glaringly obvious and ultimately is not a drastic increase in time</p>
 </div>
 <div id="align-images" class="section level3">
 <h3>Align Images</h3>
+<p><strong>Average time:</strong> 20 min</p>
 <ol style="list-style-type: decimal">
 <li>Navigate to Workflow → Align Photos
 <ul>
@@ -1680,6 +1695,7 @@ glaringly obvious and ultimately is not a drastic increase in time</p>
 </div>
 <div id="build-dense-cloud" class="section level3">
 <h3>Build Dense Cloud</h3>
+<p><strong>Average time:</strong> 150 min</p>
 <ol style="list-style-type: decimal">
 <li>Navigate to Workflow → Build Dense Cloud
 <ul>
@@ -1715,6 +1731,7 @@ Free-form)</li>
 </ol>
 <p><strong>Note:</strong> We find that Free-Form Selection is the most
 flexible and useful</p>
+<p><br><br></p>
 </div>
 </div>
 <div id="generate-orthomosaic" class="section level1">
@@ -1724,6 +1741,7 @@ flexible and useful</p>
 Agisoft Professional Edition</p>
 <div id="create-mesh" class="section level3">
 <h3>Create Mesh</h3>
+<p><strong>Average time:</strong> 2 min</p>
 <ol style="list-style-type: decimal">
 <li>Navigate to Workflow&gt;Build Mesh
 <ul>
@@ -1738,6 +1756,7 @@ lacking</p>
 </div>
 <div id="create-orthomosaic" class="section level3">
 <h3>Create Orthomosaic</h3>
+<p><strong>Average time:</strong> 10 min</p>
 <ol style="list-style-type: decimal">
 <li>Navigate to Workflow&gt;Build Orthomosaic
 <ul>

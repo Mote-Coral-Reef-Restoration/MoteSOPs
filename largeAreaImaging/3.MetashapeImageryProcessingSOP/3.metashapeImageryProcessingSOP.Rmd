@@ -1,16 +1,16 @@
 ---
-title: "Large-Area Image Processing Protocol"
+title: "Metashape Image Processing Standard Operating Procedure"
 author: 'Written by: Ian Combs (icombs@mote.org)'
 output:
-  pdf_document:
-    toc: no
-    toc_depth: '3'
   html_document:
     theme: flatly
     code_folding: show
     toc: yes
     toc_depth: 3
     toc_float: yes
+  pdf_document:
+    toc: no
+    toc_depth: '3'
 ---
 
 ```{r, setup, include = FALSE}
@@ -32,6 +32,18 @@ However, most of these functions and features are available in the [Standard Edi
 Steps and functions within this protocol that are ONLY available in the Professional Edition will be denoted *in italics*.
 Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/icombs2017/MoteSOPs).
 
+<br><br>
+
+# Computing Needs 
+***
+All steps of this imagery processing pipeline are completed on a computer with the following specifications:
+
+1. CPU - 32 core, 3.69GHz
+2. RAM - 128GB
+3. GPU - NVIDIA GeForce RTX 2080Ti
+<br><br>
+
+
 # Generate Dense Point Cloud 
 ***
 Creating a dense point cloud in Metashape occurs in two main steps: Image Alignment and Dense Point Cloud Generation with a few, but minimal, QA/QC steps along the way.
@@ -46,6 +58,8 @@ Creating a dense point cloud in Metashape occurs in two main steps: Image Alignm
 
 ### *Detect Markers*
 
+**Average time:** 1sec/image
+
 1. Metashape provides coded targets, or printed markers that can be placed in the scene before photos are taken and could be used as reference points for coordinate system and scale definition, or as a valid matches between images to help camera alignment procedure during image alignment
 
 2. Navigate to Tools &rarr; Markers &rarr; Detect Markers
@@ -58,6 +72,9 @@ Creating a dense point cloud in Metashape occurs in two main steps: Image Alignm
 
 ### Align Images 
 
+**Average time:** 20 min
+
+
 1. Navigate to Workflow &rarr; Align Photos
     * Accuracy: High
     * Generic Preselection: No
@@ -68,6 +85,8 @@ Creating a dense point cloud in Metashape occurs in two main steps: Image Alignm
     * Adaptive Camera Model Fitting: Yes
 
 ### Build Dense Cloud 
+
+**Average time:** 150 min
 
 1. Navigate to Workflow &rarr; Build Dense Cloud
     * Quality: High
@@ -93,12 +112,16 @@ Creating a dense point cloud in Metashape occurs in two main steps: Image Alignm
 **Note:** We find that Free-Form Selection is the most flexible and useful
 
 
+<br><br>
 
 # Generate Orthomosaic
 ***
 **Note:** Orthomosaics can only be generated using Agisoft Professional Edition 
 
 ### Create Mesh
+
+**Average time:** 2 min
+
 1. Navigate to Workflow>Build Mesh
     * Source data: Sparse Cloud
     * Surface type: Arbitrary (3D)
@@ -107,6 +130,9 @@ Creating a dense point cloud in Metashape occurs in two main steps: Image Alignm
 **Note:** Face count can be altered to increase/decrease the quality of the mesh if the quality of the final orthomosaic is lacking
 
 ### Create Orthomosaic
+
+**Average time:** 10 min
+
 1. Navigate to Workflow>Build Orthomosaic
     * Type: Planar
     * Projection Plane

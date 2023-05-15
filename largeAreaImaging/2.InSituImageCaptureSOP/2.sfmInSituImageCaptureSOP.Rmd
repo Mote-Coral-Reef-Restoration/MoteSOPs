@@ -1,17 +1,17 @@
 ---
-title: "Mote Marine Laboratory *in situ* Structure-from-Motion Image Capture  Standard
+title: "Mote Marine Laboratory *in situ* Structure-from-Motion Image Capture Standard
   Operating Procedure"
 author: 'Written by: Ian Combs (icombs@mote.org)'
 output:
-  pdf_document:
-    toc: no
-    toc_depth: '3'
   html_document:
     theme: flatly
     code_folding: show
     toc: yes
     toc_depth: 3
     toc_float: yes
+  pdf_document:
+    toc: no
+    toc_depth: '3'
 ---
 
 ```{r, setup, include = FALSE}
@@ -29,7 +29,6 @@ library(magrittr)
 Contained in this document is the Standard Operating Procedure for *in situ* image capture of outplant sites as part of Mote Marine Laboratory's photogrammetric surveying. Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/icombs2017/MoteSOPs).
 
 <br><br>
-
 
 ### **Establishing A Site**
 ***
