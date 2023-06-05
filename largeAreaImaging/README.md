@@ -11,10 +11,10 @@ This repository contains all of the Structure-from-Motion photogrammetry and Lar
 
 ### Repository contents:
 
-1. [GoPro Set Up](https://icombs2017.github.io/MoteSOPs/largeAreaImaging/1.GoProSetUpSOP)
+1. [GoPro Set Up](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/largeAreaImaging/1.GoProSetUpSOP)
 
-2. [*In situ* Image Capture](https://icombs2017.github.io/MoteSOPs/largeAreaImaging/2.InSituImageCaptureSOP)
+2. [*In situ* Image Capture](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/largeAreaImaging/2.InSituImageCaptureSOP)
 
-3. [Metashape Image Processing](https://icombs2017.github.io/MoteSOPs/largeAreaImaging/3.MetashapeImageryProcessingSOP)
+3. [Metashape Image Processing](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/largeAreaImaging/3.MetashapeImageryProcessingSOP)
 
-4. [TagLab Imagery Analysis](https://icombs2017.github.io/MoteSOPs/largeAreaImaging/4.TagLabSOP)
+4. [TagLab Imagery Analysis](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/largeAreaImaging/4.TagLabSOP)
