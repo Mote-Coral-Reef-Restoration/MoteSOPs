@@ -5,7 +5,7 @@ A repository to house all of the SOPs and workflows that are used by the Coral R
 ### version: March 14, 2023
 
 ### Sections of this Repository:
-[Large-Area Imaging Standard Operating Procedures](https://icombs2017.github.io/MoteSOPs/largeAreaImaging)<br>
-[Miscellaneous Standard Operating Procedures](https://icombs2017.github.io/MoteSOPs/miscellaneousProtocols)<br>
+[Large-Area Imaging Standard Operating Procedures](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/largeAreaImaging)<br>
+[Miscellaneous Standard Operating Procedures](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/miscellaneousProtocols)<br>
  
 
