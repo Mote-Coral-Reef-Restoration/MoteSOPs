@@ -1,0 +1,162 @@
+Generating 3D Models for coral microfragmenting growth rate assessments
+Modified from Young et al. 2017 by Ian Combs (icombs@mote.org)
+Last Updated: Ian Combs 7/23/20
+
+Raceway Image Capture
+
+1. You will be using the Olympus Tough TG-4. The User Manual can be found here:
+https://cs.olympus-imaging.jp/en/support/imsg/digicamera/download/manual/tg/man_tg4_e.pdf
+
+2. Check that batteries are sufficiently charged and memory card is empty.
+
+3. Ensure that the date and time is accurate. If not, navigate to Menu > Settings Menu 2 > Date/Time and set the correct date and time
+
+4. Now ensure that your interval settings are correct. Navigate to Interval Settings Menu > Settings Menu 3 > Interval Settings
+    a. Frame = 500
+    b. Start Waiting Time = 00:00:00
+    c. Interval Time = 00:00:01
+    d. Time Lapse Movie = Off
+
+
+5. Set the Mode Dial (under the record button on the back of the camera) to "Scene Mode" (SCN on the Mode Dial), using the Arrow Pad navigate to "Interval Shooting".
+
+6. Ensure the following settings are correct by pressing Down on the Arrow Pad
+    a. Picture Mode = Natural
+    b. Flash = Off
+    c. Exposure Comp = 0
+    d. White Balance (WB) = AUTO
+    e. ISO Sensitivity = ISO AUTO
+    f. Image Size = 4608x3456
+    g. Aspect = 4:3
+
+7. Now you are ready to begin filming, at these settings, the camera will capture 1 photo every second for 200 seconds.
+
+8. Position your subject (rack of coral fragments, whole coral piece, or coral fragments in starboard) relatively isolated within the raceway. Having other racks of coral in the periphery of the frame could potentially affect downstream model generation.
+
+9. Place the camera in the water, tilt the lens upward to remove any bubbles obscuring the lens. Position the camera with the screen just out of the water, it should remain like this for the duration of the session to maintain the same altitude throughout the image capture process.
+
+10. Position the camera facedown and start at the bottom left or right corner of the subject. Make sure that <20% of the subject is in frame, with the remaining portion of your monitor being taken up by raceway.
+
+11. Press the shutter button to begin the image capture sequence. Every time the camera snaps a photo, move the camera forward in a lawnmower pattern. It is important to maintain 70-80% overlap between subsequent photos. Keep the camera oriented straight down and do not change the orientation in between adjacent passes. At the end of the first set of passes, rotate the camera 90 and complete another set of passes, continuing to take photos
+
+Note: The camera is set to capture 200 consecutive photos. If at anytime you need to stop filming, simply press the "Menu" button. If your pass is greater than 200 photos, simply just press the shutter button again to restart the interval sequence.
+
+------------------------------
+File storage
+
+
+
+
+
+
+
+------------------------------
+3D Model Generation
+
+
+1.	Open Metashape and select Preferences. Under the GPU tab, make sure any available GPU devices are selected.
+
+2.	The bath processes should already be made, and can be found at C:/PHOTOGRAMMETRY/Batch Processes. However, it is good to double check the files to make sure the settings are correct. The next steps are for High-Throughput, for single model generation skip to Step 7: Before you begin importing photos and generating models, we will create and save several batch processes. Select Workflow > Batch Process. Select Add, select Job type: Align Photos, Apply to: All Chunks. Under settings, the Accuracy Value should be High. Select OK. Select the box “Save project after each step” name and save your batch process “Batch Align” or a similarly appropriate name.
+
+3.	In the same window, select Remove, then select Add, Job Type: Build Dense Cloud, Apply to: All Chunks. The Quality setting should be set to High, if not, double click and select High. Select OK. Select the box “Save project after each step,” name and save your batch process “Batch Dense Cloud” or a similarly appropriate name.
+
+4.	In the same window, select Remove, then select Add, Job Type: Build Mesh, Apply to: All Chunks. The Custom face count should be set to 1,000,000 for high accuracy. Select OK.
+
+5.	In the same window, Select Add, Job type: Build Texture, Apply to: All Chunks. Select OK. Select the box “Save project after each step,” name and save your batch process “Batch Texture” or a similarly appropriate name.
+
+6. In the same window, select Remove, then select Add, Job Type: Export Model, Apply to: All Chunks. Path: Navigate to the folder where you wish to store your models. Texture Format: PNG, Select OK. Select the box “Save project after each step,” name and save your batch process “Batch Export” or a similarly appropriate name. Saving the file as {chunklabel} will name the file the same name as your chunk.
+
+Note: The reasoning behind the three separate batch processes is that there are important QA/QC procedures between the Alignment and Dense Cloud generations.
+
+7.	Select the Add Chunk icon in the Workspace Window. Right click on the new Chunk and select Add > Add Photos. Navigate to your working directory and select all of the still images. Once imported, they will show up as a Chunk (set of photos). Rename the Chunk to distinguish this model from subsequent models. Repeat this process for all the remaining models you wish to make. Save the project.
+
+8.	For single model generation: Select the Add Photos icon in the Workspace window. Navigate to your working directory and select all of the still images. Once imported, they will show up as a Chunk (set of photos). Save the project.
+
+9.	Start the image alignment process by selecting Workflow, Align Photos. Set the Accuracy to High. This process may take some time, since it finds common points among the photos.
+    a.	For High-Throughput process: Start the image alignment process by selecting Workflow, Batch Processes. Load the first batch process you made “Batch Align.” Click OK.
+
+10.	Check the alignment by looking at the Photos window under View. Each photo will show up as a thumbnail; if it has aligned, you will see a check mark. You can also check the aligned photo placement in the sparse point cloud in the Model window. Select the Show Cameras icon to see where the program thinks they were taken. The blue camera icons should approximately match the path taken in the original video. Use each of the three colored axes on the model sphere to move in 3 dimensional space, and scroll to zoom in and out.
+    a.	If all the photos aligned correctly, proceed to the next step.
+    b.	If some did not align properly, you can select the particular photos and Select Align Photos again. Alternatively, you can realign all of the photos, go to Processes: Align Photos and make sure that "Reset Current Alignment" is deselected (this will start everything from scratch and will take longer)
+
+11.	Select Resize Region. Ensure that the Region (the gray box) encompasses the entirety of your model (make sure to check the X, Y, and Z plane). The remaining steps only take into account what is located inside the Region. This is also a good time to remove any outliers or points you do not want in your model. You can do this by resizing the region or by using the selection tool, highlighting the undesirable points, and pressing delete.
+    a.	For High-Throughput: Ensure this is done for each Chunk.
+
+12.	Once enough photos are aligned, select Build Dense Cloud under Workflow. Set the Quality to High and start the process.
+    a.	For High-Throughput: Select Workflow, Batch Processes. Load the second batch process you made “Batch Dense Cloud.” Click OK.
+
+13.	Once finished, you should have a decent representation of the model features built from many small points.
+    a.	Check all angles of the point cloud, looking for aberrant features (“floaters”), or areas with moving features such as soft corals or trees.
+    b.	Since these will not be well represented in the finished model, they should be removed. Position the model so that the problem features are isolated from the other parts of the model (nothing behind the features). Use the Rectangle Selection tool on the toolbar to highlight any offending points, and select the Delete Selection tool on the toolbar.
+    c.	Don’t worry if this creates small gaps, as they will be filled in when the mesh is made. You do, however, have to remove all the problem features at this stage, otherwise you will have holes in your mesh.
+
+14.	Start the Build Mesh process from the Workflow menu. Change the Face Count to 1,000,000 for high accuracy. You can set the mesh higher, however adding the texture automatically decimates the mesh to 1,000,000 face count.
+    a.	For High-Throughput: Select Workflow, Batch Processes. Load the second batch process you made called “Batch Texture.” Click OK. (This batch process combines steps 13 and 14, which are relatively quick, use the QA/QC procedures below and rerun as normal if needed.)
+    b.	Now you should have a smoothed version of the point cloud. Check for any lingering problem features.
+    c.	If anything is found, switch back to the Dense Point Cloud using the button on the toolbar, remove them as described above, and regenerate the mesh.
+
+15.	Start the Build Texture process from the Workflow menu, which may take another 5–10 minutes. Once completed, the photo texture will be mapped to the 3D model.
+
+16.	Export the model by selecting File, Export, Export Model. Save it as a Wavefront OBJ (.obj) file. Make sure that Export Texture is selected in the following window. Saving as {chunklabel} will give your file names the same labels as your chunks.
+
+------------------------------
+3D Model Scaling and Analysis
+
+Note: This protocol in based on Grace Young’s protocols on texture troubleshooting (https://www.graceunderthesea.com/thesis/photoscan-gt-rhino-not-importing-texture), orientation and scaling (https://www.graceunderthesea.com/thesis/how-to-rotate-3-points-flat-in-rhino), and quantitative analysis (https://www.graceunderthesea.com/thesis/rhino-3d-tutorials).
+
+Note: If you are having slow performance working with models in Rhino, you can change the view from quad to single on the top toolbar. Working in quad may also cause texture rendering problems on large or complex models. But, you can of course switch back and forth between views as necessary for the analyses.
+
+1.	Open the .obj file using Rhino 3D and save as a project file .3dm (with Save Textures checked).
+2.	The texture created by Metashape should automatically appear on the mesh (model).
+    a.	If it does not, first right click in each of the 4 windows and make sure Rendered view is selected.
+    b.	No luck still? Select the mesh (will appear yellow when selected), then select the Object Properties pane on the right (hollow circle symbol on Mac). Remap the texture under Material, Edit, Textures, and select Color. The map file can be relocated by selecting the dropdown next to Map File.
+3.	In the top right panel, there should be a list of layers. Rename the Default to something like Base or Mesh. Right click to add new layers, one each for Scale, Coral, Disease. As you are working with the respective objects, select the appropriate layer to assign the objects. You can then toggle the layer visibility using the light bulb icon.
+
+5.	Model scaling: The starboard frame will have ENTER NUMBER OF SCALERS, we will scale from these
+    b.	Add points to the sides of the scale object by typing "Points" into the command line. Make sure "On Mesh" is selected in the Object Snaps panel. Enter when done.
+    c.	Run "DimAligned" in the command line. Make sure "Point" is selected in the Object Snaps panel and select each of the two scale points. Once entered, an arbitrary length should appear. Drag the scale bar with number outside the model boundaries and left click to release.
+    e.	Select File, Settings, Dimensions, and set the Precision to the highest number of decimal points.
+    f.	Select all (Cmd+A) and run "Group" in the command line.
+    g.	Run "Scale" in the command line, select the mesh group (if not already selected), then select one of the scale points.
+    h.	When prompted for the scaling factor in the top left panel, enter the known dimension divided by the arbitrary scaling length from step d (e.g. length in millimeters/number from DimAligned).
+    i.	Change the units by selecting File, Settings, Units, and set the Model Units to centimeters. When prompted, select Yes to rescale the model.
+    j.	NEED TO CHANGE WHEN WE FIGURE OUT SCALE BARS Change the grid by selecting File, Settings, Grid, and set the Grid Line Count to 20 and the Minor Grid Lines Every 0.1m.
+    k.	Reframe the model using View, Zoom, Zoom Extents All.
+6.	Check the area of the whole model by selecting all, then typing Area into the command line. The full area will be displayed in cm2.
+
+7.	You can make the scale arrows and text smaller by selecting File, Settings, Dimensions, Sizes (Text height: 0.1) and Arrows (Dimension arrows Length: 0.1).
+
+8.	(Optional) Note: This step has no affect on the measurements you take, but may be useful in orienting the model and making it easier to work with.
+  To align the model on the X-Y plane:
+    a.	Get the model in the full viewframe by selecting View, Zoom, Zoom Extents All.
+    b.  Right click the mesh and set the view to Technical (easier to see points).
+    c.	Make sure the Object Snap menu is always visible (defaults to bottom left panel on Mac). If it’s not already there, select Tools, Object Snap, Show Object Snaps Panel.
+    d.	Type Points in the command prompt (top left panel), and select Persistent and On Mesh in the Object Snaps panel.
+    e.	Select the polygon mesh by clicking once on the mesh.
+    f.	The pointer should change to a crosshair. Add 3 points to PVC corners (outer boundaries of the quadrat or PVC markers). Hit Enter when done adding points.
+    g.	Select all (Cmd+A) then type Group into the command line. Enter to group.
+    h.	Type Move in the command line then Enter. Select the mesh (if not already selected) then Enter.
+    i.	Select Point on the Object Snaps panel. It will be hard to find the center point (what you want to be at the origin) with the selected mesh, but you can move the mouse in the selected area when zoomed in.
+    j.	Once you find the correct point, select it. Select the Move To location by finding the X-Y origin. Make sure Grid Snap is selected in the top toolbar and zooming helps. Select the origin and the model should automatically align the point.
+    k.	In the Top view, enter the command Rotate, then select the grouped mesh and Enter. Select the center of rotation (point at origin), then select the angle or first reference point (another point you want on the x-axis). Enter, then it will ask for the second reference point. Make sure Ortho is selected on the top toolbar, then rotate the model so the second point rests on the x-axis.
+    l.	Switch to Front or Right views and repeat step j twice to align to the x- and y-axes. The resulting points should be on the x and y-axes, with the model relatively aligned.
+
+9.	Now it’s time to start creating objects for the living coral tissue and disease lesions. Start by switching to the appropriate layer.
+
+10.	Create a polygon using the PolylineOnMesh icon in the top left panel. Select the base mesh, then begin drawing the polyline around the target object.
+
+11.	Once finished, connect the ending and starting points.
+
+12.	The object (called a curve) will be used to create a surface to measure area, but since it is on the mesh, cannot be used for calculations by itself.
+
+13.	Right click on the Surface from 3 or 4 Corner Points icon to bring up the Surface Creation window.
+
+14.	Select the "Drape" icon. Draw the window around an area encompassing your curve(s).
+  Note: The secondary mesh generated by the drape may behave oddly around vertical features, especially if your coral colony is directly adjacent to larger features, in certain instances where the draped mesh is creating undesirable artifacts we have found it useful to invert the model and drape the mesh on the underside of the model.
+
+15. Run "Trim" in the command line. Select the curve(s). Enter or select Done. Under "Select object to trim:" select an area on the Drape outside your curve. Enter or select Done. This should remove all the surface except for what is captured within your curves.
+    a. If you have many small curves to trim from one drape over a large area, run "Trim", then type "SelSmall" into the command line when it asks to select the cutting objects. Enter, then change the maximum length to a threshold that will select all your curves (I used 0.5). When you Enter, all the curves should be selected. Then Enter to end selection of cutting objects, and then select the drape as the object to trim.
+
+16.	Once the surface is generated, select it and then type "Area" in the command line. The surface area should appear in the bottom right panel. Copy the value over to an Excel spreadsheet. You can also group all objects of the same type and get a cumulative area, but you lose the individual area values.
+
+17.	Repeat steps 9-15 with other target objects, making sure to switch to the correct layer and toggling visibility to see overlapping layers.

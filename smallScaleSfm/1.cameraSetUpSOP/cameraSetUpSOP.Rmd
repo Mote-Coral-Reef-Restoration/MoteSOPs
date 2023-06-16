@@ -1,0 +1,61 @@
+---
+title: "Camera Set Up Standard Operating Procedure"
+author: "Ian Combs"
+date: "2023-06-16"
+output:
+  html_document:
+    theme: flatly
+    code_folding: show
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: no
+    toc_depth: '3'
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
+library(magrittr)
+```
+
+<!-- if updating, make sure you change name below -->
+### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
+
+
+
+## Overview
+
+Contained in this document is the Standard Operating Procedure for the camera configuration of cameras for Mote Marine Laboratory's small-scale Structure-from-Motion photogrammetry pipeline. Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs).
+
+
+
+### **Olympus TG-6 Settings**
+***
+
+1. You will be using the Olympus Tough TG-6. The User Manual can be found [here](https://learnandsupport.getolympus.com/sites/default/files/media/files/2019/06/TG-6_ENU_00.pdf)
+
+2. Check that batteries are sufficiently charged and memory card is empty
+
+3. Ensure that the date and time is accurate. If not, navigate to Menu &rarr; Settings Menu 2 &rarr; Date/Time and set the correct date and time
+
+4. Now ensure that your interval settings are correct. Navigate to Interval Settings Menu &rarr; Settings Menu 3 &rarr; Interval Settings
+    * Frame = 299<br>
+    * Start Waiting Time = 00:00:00<br>
+    * Interval Time = 00:00:01<br>
+    * Time Lapse Movie = Off<br><br>
+
+
+5. Set the Mode Dial (under the record button on the back of the camera) to "C1" (C1 on the Mode Dial).
+
+6. Using the Arrow Pad navigate to "Interval Shooting". Ensure the following settings are correct by pressing Down on the Arrow Pad
+    * Picture Mode = Natural<br>
+    * Flash = Off<br>
+    * Exposure Comp = 0<br>
+    * White Balance (WB) = AUTO<br>
+    * ISO Sensitivity = ISO AUTO<br>
+    * Image Size = 4608x3456<br>
+    * Aspect = 4:3<br><br>
+
+7. Now you are ready to begin filming, at these settings, the camera will capture 1 photo every second for 200 seconds.
+
