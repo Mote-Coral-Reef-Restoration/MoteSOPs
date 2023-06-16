@@ -1,0 +1,77 @@
+---
+title: "Metashape Imagery Processing Standard Operating Procedure"
+author: "Ian Combs"
+date: "2023-06-16"
+output:
+  html_document:
+    theme: flatly
+    code_folding: show
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: no
+    toc_depth: '3'
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
+library(magrittr)
+```
+
+<!-- if updating, make sure you change name below -->
+### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
+
+
+## Overview
+
+Contained in this document is the Standard Operating Procedure for model generation using Agisoft Metashape for Mote Marine Laboratory's small-scale Structure-from-Motion photogrammetry pipeline. Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs).
+
+
+### **Metashape Image Processing**
+***
+
+1.	Open Metashape and select Preferences. Under the GPU tab, make sure any available GPU devices are selected.
+
+2.	The bath processes should already be made, and can be found at C:/PHOTOGRAMMETRY/Batch Processes. However, it is good to double check the files to make sure the settings are correct. The next steps are for High-Throughput, for single model generation skip to **Step 7**. Before you begin importing photos and generating models, we will create and save several batch processes. Select **Workflow** &rarr; **Batch Process**. Select **Add**, select Job type: Align Photos, Apply to: All Chunks. Under settings, the **Accuracy Value** should be High. Select OK. Select the box *Save project after each step* name and save your batch process *Batch Align* or a similarly appropriate name.
+
+3.	In the same window, select **Remove**, then select **Add**, **Job Type: Build Dense Cloud**, Apply to: **All Chunks**. The **Quality** setting should be set to **High**, if not, double click and select **High**. Select OK. Select the box *Save project after each step*, name and save your batch process *Batch Dense Cloud* or a similarly appropriate name.
+
+4.	In the same window, select **Remove**, then select **Add**, Job Type: **Build Mesh**, Apply to: **All Chunks**. **The Custom face count** should be set to 1,000,000 for high accuracy. Select OK.
+
+5.	In the same window, Select **Add**, Job type: **Build Texture**, Apply to: **All Chunks**. Select OK. Select the box *Save project after each step*, name and save your batch process *Batch Texture* or a similarly appropriate name.
+
+6. In the same window, select **Remove**, then select **Add**, Job Type: **Export Model**, Apply to: **All Chunks**. **Path:** Navigate to the folder where you wish to store your models. **Texture Format:** PNG, Select OK. Select the box “Save project after each step,” name and save your batch process “Batch Export” or a similarly appropriate name. Saving the file as {chunklabel} will name the file the same name as your chunk.
+
+Note: The reasoning behind the three separate batch processes is that there are important QA/QC procedures between the Alignment and Dense Cloud generations.
+
+7.	Select the Add Chunk icon in the Workspace Window. Right click on the new Chunk and select Add > Add Photos. Navigate to your working directory and select all of the still images. Once imported, they will show up as a Chunk (set of photos). Rename the Chunk to distinguish this model from subsequent models. Repeat this process for all the remaining models you wish to make. Save the project.
+
+8.	For single model generation: Select the Add Photos icon in the Workspace window. Navigate to your working directory and select all of the still images. Once imported, they will show up as a Chunk (set of photos). Save the project.
+
+9.	Start the image alignment process by selecting Workflow, Align Photos. Set the Accuracy to High. This process may take some time, since it finds common points among the photos.
+    a.	For High-Throughput process: Start the image alignment process by selecting Workflow, Batch Processes. Load the first batch process you made “Batch Align.” Click OK.
+
+10.	Check the alignment by looking at the Photos window under View. Each photo will show up as a thumbnail; if it has aligned, you will see a check mark. You can also check the aligned photo placement in the sparse point cloud in the Model window. Select the Show Cameras icon to see where the program thinks they were taken. The blue camera icons should approximately match the path taken in the original video. Use each of the three colored axes on the model sphere to move in 3 dimensional space, and scroll to zoom in and out.
+    a.	If all the photos aligned correctly, proceed to the next step.
+    b.	If some did not align properly, you can select the particular photos and Select Align Photos again. Alternatively, you can realign all of the photos, go to Processes: Align Photos and make sure that "Reset Current Alignment" is deselected (this will start everything from scratch and will take longer)
+
+11.	Select Resize Region. Ensure that the Region (the gray box) encompasses the entirety of your model (make sure to check the X, Y, and Z plane). The remaining steps only take into account what is located inside the Region. This is also a good time to remove any outliers or points you do not want in your model. You can do this by resizing the region or by using the selection tool, highlighting the undesirable points, and pressing delete.
+    a.	For High-Throughput: Ensure this is done for each Chunk.
+
+12.	Once enough photos are aligned, select Build Dense Cloud under Workflow. Set the Quality to High and start the process.
+    a.	For High-Throughput: Select Workflow, Batch Processes. Load the second batch process you made “Batch Dense Cloud.” Click OK.
+
+13.	Once finished, you should have a decent representation of the model features built from many small points.
+    a.	Check all angles of the point cloud, looking for aberrant features (“floaters”), or areas with moving features such as soft corals or trees.
+    b.	Since these will not be well represented in the finished model, they should be removed. Position the model so that the problem features are isolated from the other parts of the model (nothing behind the features). Use the Rectangle Selection tool on the toolbar to highlight any offending points, and select the Delete Selection tool on the toolbar.
+    c.	Don’t worry if this creates small gaps, as they will be filled in when the mesh is made. You do, however, have to remove all the problem features at this stage, otherwise you will have holes in your mesh.
+
+14.	Start the Build Mesh process from the Workflow menu. Change the Face Count to 1,000,000 for high accuracy. You can set the mesh higher, however adding the texture automatically decimates the mesh to 1,000,000 face count.
+    a.	For High-Throughput: Select Workflow, Batch Processes. Load the second batch process you made called “Batch Texture.” Click OK. (This batch process combines steps 13 and 14, which are relatively quick, use the QA/QC procedures below and rerun as normal if needed.)
+    b.	Now you should have a smoothed version of the point cloud. Check for any lingering problem features.
+    c.	If anything is found, switch back to the Dense Point Cloud using the button on the toolbar, remove them as described above, and regenerate the mesh.
+
+15.	Start the Build Texture process from the Workflow menu, which may take another 5–10 minutes. Once completed, the photo texture will be mapped to the 3D model.
+
+16.	Export the model by selecting File, Export, Export Model. Save it as a Wavefront OBJ (.obj) file. Make sure that Export Texture is selected in the following window. Saving as {chunklabel} will give your file names the same labels as your chunks.
