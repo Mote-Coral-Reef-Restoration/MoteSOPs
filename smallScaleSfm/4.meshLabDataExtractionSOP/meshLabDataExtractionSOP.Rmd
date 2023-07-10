@@ -1,0 +1,134 @@
+---
+title: "MeshLab Data Extraction Standard Operating Procedure"
+author: "Ian Combs"
+date: "2023-07-06"
+output:
+  html_document:
+    theme: flatly
+    code_folding: show
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: no
+    toc_depth: '3'
+---
+
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
+library(magrittr)
+```
+
+<br>Written by: Kamryn Herbison<br><br>
+Adapted from: [Million and Kenkel, 2021](https://par.nsf.gov/servlets/purl/10214897)
+
+<!-- if updating, make sure you change name below -->
+### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
+
+
+## Overview
+
+Contained in this document is the Standard Operating Procedure for surface area data extraction using MeshLab for Mote Marine Laboratory's small-scale Structure-from-Motion photogrammetry pipeline. Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs).
+
+### **Importation and scaling of 3D models generated in Metashape**
+***
+
+  1. Open files and select desired .obj file. Meshlab will automatically open with the selected model. 
+  2. Select the yellow measuring tape labeled “measuring tool” located in the top toolbar.
+  3. Take three measurements of 2 cm, one on each of the rulers in the model. The measurement outputs will display in the layer dialog located in the bottom right corner of the screen.
+  4. Calculate the average of these three measurements. Divide the actual measurement by the average previously calculated. This is the scale factor.
+  5. Navigate to the toolbar. Select Filters &rarr; Normals, Curvatures and Orientation &rarr; Transform: Scale, Normalize.
+  6. Input the calculated scale factor into the “X Axis” box and select “Apply to all visible layers”. Apply the filter. 
+  7. Now take three more measurements on three different rulers in the model and ensure the measurement outputs are correct. 
+
+### **Removal of all undesired components in preparation of surface area measurements**
+***
+
+  1. Select the irregular shaped polygon from the toolbar, labeled “Select Faces/Vertices inside polyline area”. Outline just the model(s) of interest by placing points surrounding the model.
+  2. Press “q” on the keyboard to select the area inside the polyline area that was just created. Then press “i” to inverse the function and select everything other than the model(s). 
+  3. Navigate to the three crossed out triangles in the toolbar. Select the center triangle, labeled “Delete Selected Faces”.
+  4. There is a different protocol for single larger models (wild) versus multiple smaller models (frags).
+
+#### **For a single larger model (wild):**
+  1. Select the paintbrush from the toolbar, labeled “Z-painting”. Then select the paintbrush with the red bristles. 
+  2. Outline the specific component of the model that is going to be measured for surface area (all live tissue). Use a zigzag pattern to “paint” undesired areas of the model.
+  3. Once the model is completely outlined, select the previously used triangle labeled “Delete Selected Faces”. 
+  4. To delete the rest of the undesired components select Filters &rarr; Selection &rarr; Select small disconnected component. Then select the center triangle again.
+  5. Remove any other undesired components by selecting them with the red paintbrush and selecting the center triangle. 
+
+#### For multiple smaller models (frags):
+  1. Select the paintbrush from the toolbar, labeled “Z-painting”. Then select the paintbrush with the red bristles. 
+  2. Outline the specific components of the model that are going to be measured for surface area (all live tissue). 
+  3. Once the models are completely outlined, select the previously used triangle labeled “Delete Selected Faces”. 
+  4. To delete the rest of the undesired components select Filters &rarr; Selection &rarr; Select small disconnected component. This should select the live tissue of the frags.
+  5. Select the irregular shaped polygon from the toolbar, labeled “Select Faces/Vertices inside polyline area” and press “i” on the keyboard to inverse the function and select everything except the desired models. 
+  6.  Select the previously used triangle labeled “Delete Selected Faces”. 
+  7. Remove any other undesired components by selecting them with the red paintbrush and selecting the center triangle.
+
+
+### **Surface area measurements**
+***
+
+1. Close any accidental holes in the tissue by selecting Filters &rarr; Remeshing, Simplification and Reconstruction &rarr; Close Holes. 
+2. Deselect all of the boxes and set the “Max size to be closed” to 50. Hit apply. If a hole was not closed, increase the threshold in increments of 50. Be careful not to raise the number too high, as it may add tissue that was not there to begin with. 
+3. Select Filters &rarr; Quality Measure and Computations &rarr; Compute Geometric Measures.
+4. Scroll though the outputs generated in the layer dialog. The surface area measurement will be labeled in cm^2, or whatever units were originally used to scale the model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+### **Surface Area Data Extraction Using MeshLab**
+***
+
+We will be using the open-source software [MeshLab]( https://www.meshlab.net/#download ) to compute geometric measurements of the 3D coral models made in Agisoft Metashape.  Each model file contains 2 sample coral, therefore processing a single model file will require multiple “runs” as we must crop out all but one of the models to get a surface area of the coral sample.  The process is broken down into the following steps:
+
+  1.	Import mesh file (.obj file)
+  2.	Record the genotype and replicate code (e.g. AC31-C14) you are going to measure
+  3.	Set Scale using rulers from model
+  4.	Export Scaled Model (for first run of a model)
+  5.	Crop out coral mesh that you are not measuring on this run
+  6.	Export mesh
+  7.	Minor hole filling 
+  8.	Compute geometric measures
+  9.	Record Surface Area of mesh and record to the Master Spreadsheet
+
+The subsequent runs will consist of the same steps; however, we will export a scaled version of the model so you will not have to reset the scale on the later runs.  You will open the scaled model that you saved in the first run and resume the protocol after the set scale step.
+
+## **Import Mesh into MeshLab**
+***
+  * Open the MeshLab application, and either Press “control + I” or click on file and select “Import mesh”.
+  * Navigate to the “models” folder where the .obj files were exported from Metashape.
+    * Each treatment should have its own models folder (longterm OW, CBASS, etc.) where the mesh (.obj) and texture (.png) are stored.
+  * Select the .obj file and wait for Meshlab to load the file.
+  * Check that the model looks correct, has a legible rendering of the genotype card, and has both corals (if 2 are present).
+    
+## **Record Genotype and Replicate Information**     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

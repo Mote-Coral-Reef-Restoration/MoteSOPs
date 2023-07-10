@@ -33,7 +33,13 @@ Contained in this document is the Standard Operating Procedure for model generat
 
 1.	Open Metashape and select Preferences. Under the GPU tab, make sure any available GPU devices are selected.
 
-2.	The bath processes should already be made, and can be found at C:/PHOTOGRAMMETRY/Batch Processes. However, it is good to double check the files to make sure the settings are correct. The next steps are for High-Throughput, for single model generation skip to **Step 7**. Before you begin importing photos and generating models, we will create and save several batch processes. Select **Workflow** &rarr; **Batch Process**. Select **Add**, select Job type: Align Photos, Apply to: All Chunks. Under settings, the **Accuracy Value** should be High. Select OK. Select the box *Save project after each step* name and save your batch process *Batch Align* or a similarly appropriate name.
+2.	The bath processes should already be made, and can be found at C:/PHOTOGRAMMETRY/Batch Processes. However, it is good to double check the files to make sure the settings are correct. The next steps are for High-Throughput, for single model generation skip to **Step 7**. Before you begin importing photos and generating models, we will create and save several batch processes. 
+    * Select **Workflow** &rarr; **Batch Process** 
+    * Select **Add**, select Job type: **Align Photos **
+    * Apply to: **All Chunks**
+        * Under settings, the **Accuracy Value** should be **High**. Select OK. 
+    * Select the box *Save project after each step* 
+        * Name and save your batch process *Batch Align* or a similarly appropriate name.
 
 3.	In the same window, select **Remove**, then select **Add**, **Job Type: Build Dense Cloud**, Apply to: **All Chunks**. The **Quality** setting should be set to **High**, if not, double click and select **High**. Select OK. Select the box *Save project after each step*, name and save your batch process *Batch Dense Cloud* or a similarly appropriate name.
 
