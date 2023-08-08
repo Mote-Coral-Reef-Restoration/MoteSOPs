@@ -13,8 +13,8 @@ This repository contains all of the Structure-from-Motion photogrammetry and sma
 
 1. [Camera Set Up](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/smallScaleSfm/1.cameraSetUpSOP)
 
-2. [*In situ* Image Capture](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/smallScaleSfm/2.racewayImageCaptureSOP)
+2. [Raceway Image Capture](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/smallScaleSfm/2.racewayImageCaptureSOP)
 
 3. [Metashape Image Processing](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/smallScaleSfm/3.metashapeImageryProcessingSOP)
 
-4. [TagLab Imagery Analysis](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/smallScaleSfm/4.meshLabDataExtractionSOP)
+4. [MeshLab Imagery Analysis](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/smallScaleSfm/4.meshLabDataExtractionSOP)
