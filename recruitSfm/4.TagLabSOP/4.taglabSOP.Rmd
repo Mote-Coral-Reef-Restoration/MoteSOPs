@@ -1,6 +1,6 @@
 ---
 title: "Mote Marine Laboratory TagLab Analysis Standard Operating Procedure"
-author: 'Written by: Gabrielle D''Alonzo (gdalonzo@mote.org)'
+author: 'Written by: Lily Gullett (lilysgullett@outlook.com)'
 output:
   html_document:
     theme: flatly
@@ -18,13 +18,13 @@ knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
 library(magrittr)
 ```
 <!-- if updating, make sure you change name below -->
-### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
+### Last Updated: Lily Gullett, `r Sys.Date() %>% format(format="%B %d, %Y")`
 
 <br><br>
 
 ## Overview
 
-Contained in this document is the Standard Operating Procedure for the analysis of large orthophotos/orthomosaics using the open-source software TagLab.
+Contained in this document is the Standard Operating Procedure for the analysis of single rack orthomosaics using the open-source software TagLab.
 The preexisting documentation for TagLab that can be found on their  [website](https://taglab.isti.cnr.it/) and [GitHub](https://github.com/cnr-isti-vclab/TagLab) are great resources that lay out the basic [installation](https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab), and [tools](https://taglab.isti.cnr.it/docs) to successfully navigate TagLab. 
 These resources also include some potentially relevant [troubleshooting tips](https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab). 
 Any confusion on program usage not addressed in this protocol may be resolved there. Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/icombs2017/MoteSOPs).
@@ -41,9 +41,7 @@ Any confusion on program usage not addressed in this protocol may be resolved th
 	* Map Name: What you want to call that specific image
 		* Mote uses the following naming convention YYYY_MM_DD_Site-Name.fileFormat ex: 2022_09_21_Q-9.tiff
 	* RGB Image: either type in the file path to your image or click the symbol to the right "..." and navigate via your file browser
-	* Depth Image: do the same thing if you have a Digital Elevation Model (DEM) coregistered to your image
 	* Acquisition Date: Fill in the date for when the imagery was captured format: YYYY-MM-DD
-	* Pixel size (mm): How long one pixel is (mm), this can also be done post-hoc using the measure tool
 
 **Note:** *Map Name*, *Path to RGB Image*, and *Acquisition Date* are necessary in order to start your project. 
 
@@ -51,7 +49,7 @@ Any confusion on program usage not addressed in this protocol may be resolved th
 
 5. Repeat this for every image you wish to analyze in your particular project
 
-**Note:** Our projects tend to include a single site over multiple time points and we add subsequent time points to the project as they enter the analysis pipelines. 
+**Note:** Our project included all racks at a particular timepoint per Taglab project however you could do projects by different racks and add new timepoints as you collect data. 
 
 6. Save the project by navigating to File &rarr; Save As and then save the project within the "TagLab" folder of whatever project you are working on
 
@@ -78,24 +76,19 @@ Any confusion on program usage not addressed in this protocol may be resolved th
 	* Enter your known distance (in mm) and select OK
 	* Measure that known distance, or another known distance using the same tool to double check that your scale was set correctly
 
-**Note:** We use scale bars with their centers spaced 50cm apart
-
-3. To set your working area navigate to Project &rarr; Set Working Area
-	* Select the square with a cursor (to the left of the "Set" button)
-	* Drag the square to encompass your working area
-	
-**Note:** We delineate our working areas using markers/pins
-
-**Note:** You can enter your working area manually using local coordinates, but this is not recommended.
+**Note:** If you want more precise measurement data for coral recruits, increase the distance by a factor of 10 (15mm becomes 150mm).
 
 4. You can then use the Create Grid tool to make a grid to place over the working area. This breaks the whole ortho down into more manageable pieces for more thorough segmentation. 
-	* In addition, Active/Deactivate Grid Operations allows for boxes of the grid to be marked as complete, incomplete, or empty to help track segmentation progress through the whole ortho.
+  * You can change the size and placement of your graph in order to have each square encompass a single plug.
+	* In addition, Active/Deactivate Grid Operations allows for boxes of the grid to be marked as complete, incomplete, or empty to help track segmentation progress through the whole rack.
 
 5. Begin segmenting your image
 	* A list of the tools and functions can be found [here](https://taglab.isti.cnr.it/docs)
-	* We tend to use the Positive/negative clicks segmentation tool, the 4-clicks segmentation tool, and the Edit Border tool the most (in that order)
+	* We tend to use the Positive/negative clicks segmentation tool to select each recruit, the Cut segmentation tool to separate recruits that are touching into their own segment, and the Edit Border tool the most (in that order)
+	* Make sure to save your project during segmentation, a good way is to save it when you reach the end of each row.
+	
 
-6. Once the image is segmented, navigate to File &rarr; Export and export your data in your preferred format
+6. Once the image is segmented, if you want the size data, the navigate to File &rarr; Export and export your data in your preferred format
 
 **Note:** We normally export as a Data Table for downstream statistical analysis and data visualization in R. However, you might find other formats more or less useful depending on your research questions. 
 	
