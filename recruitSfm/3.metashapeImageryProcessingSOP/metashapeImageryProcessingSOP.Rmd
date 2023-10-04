@@ -1,7 +1,7 @@
 ---
 title: "Metashape Imagery Processing Standard Operating Procedure"
-author: "Ian Combs"
-date: "2023-06-16"
+author: "Lily Gullett"
+date: "2023-09-28"
 output:
   html_document:
     theme: flatly
@@ -70,3 +70,5 @@ Contained in this document is the Standard Operating Procedure for model generat
 
 
 16.	Export the orthomosaic by selecting File &rarr Export &rarr Export Orthomosaic.
+
+**Note:** The above steps are for single model generation however if you want to do High-Throughput there's an additional Standard Operating Procedure that can be found [here](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/smallScaleSfm/3.metashapeImageryProcessingSOP).

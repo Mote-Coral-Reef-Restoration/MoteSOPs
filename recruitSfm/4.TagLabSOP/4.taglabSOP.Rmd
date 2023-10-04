@@ -1,6 +1,7 @@
 ---
-title: "Mote Marine Laboratory TagLab Analysis Standard Operating Procedure"
-author: 'Written by: Lily Gullett (lilysgullett@outlook.com)'
+title: "TagLab Analysis Standard Operating Procedure"
+author: "Lily Gullett"
+date: "2023-09-29"
 output:
   html_document:
     theme: flatly
@@ -85,8 +86,7 @@ Any confusion on program usage not addressed in this protocol may be resolved th
 5. Begin segmenting your image
 	* A list of the tools and functions can be found [here](https://taglab.isti.cnr.it/docs)
 	* We tend to use the Positive/negative clicks segmentation tool to select each recruit, the Cut segmentation tool to separate recruits that are touching into their own segment, and the Edit Border tool the most (in that order)
-	* Make sure to save your project during segmentation, a good way is to save it when you reach the end of each row.
-	
+	* Make sure to save your project during segmentation, a good way is to save it when you reach the end of each row of plugs or grids.
 
 6. Once the image is segmented, if you want the size data, the navigate to File &rarr; Export and export your data in your preferred format
 

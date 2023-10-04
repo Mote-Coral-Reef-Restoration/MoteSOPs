@@ -36,15 +36,15 @@ Contained in this document is the Standard Operating Procedure for raceway image
 
 2. Add scale bars to your rack. Glue the scale bars to plugs and allow them to cure and soak before doing a scan. When gluing scale bars it is advised that you cut a standard ruler on waterproof paper in half (15 cm) and put the plugs in the egg crate at the desired distance apart so that you ensure they remain flat during scans. The scale bars should be placed around each outside edge of your group of plugs. If you have Agisoft Metashape Pro there are printable markers under the Tools &rarr Markers &rarr Print Markers... which should be glued to plugs, allowed to cure and soak, and distributed at all four corners and in the middle of your group of plugs containing recruits. These markers assist the software in generating products downstream however they are not necessary. 
  
-2. Position your rack relatively isolated within the raceway over sheets of waterproof paper to create a white background. Having other racks of coral in the periphery of the frame could potentially affect downstream model generation. Turn off pumps and flow if they are disturbing the surface of the water in order to avoid unnecessary shadows. 
+3. Position your rack relatively isolated within the raceway over sheets of waterproof paper to create a white background. Having other racks of coral in the periphery of the frame could potentially affect downstream model generation. Turn off pumps and flow if they are disturbing the surface of the water in order to avoid unnecessary shadows. 
 
-2. Place the camera in the water, tilt the lens upward to remove any bubbles obscuring the lens. Position the camera to maintain the same altitude throughout the image capture process and ensure both level bars are green. Depending on the size of the recruits the altitude of your camera should change. 
+4. Place the camera in the water, tilt the lens upward to remove any bubbles obscuring the lens. Position the camera to maintain the same altitude throughout the image capture process and ensure both level bars are green. Depending on the size of the recruits the altitude of your camera should change. 
 
-3. Turn on your white light and position it at a 45 degree angle relative to your camera. Look through the viewfinder to make sure that the subject is illuminated and that shadows are reduced as much as possible.
+5. Turn on your white light and position it at a 45 degree angle relative to your camera. Look through the viewfinder to make sure that the subject is illuminated and that shadows are reduced as much as possible.
 
-4. Position the camera face down and start at the bottom left or right corner of the subject. Make sure that <20% of the subject is in frame, with the remaining portion of your viewfinder being taken up by raceway.
+6. Position the camera face down and start at the bottom left or right corner of the subject. Make sure that <20% of the subject is in frame, with the remaining portion of your viewfinder being taken up by raceway.
 
-5. Press the shutter button to begin the image capture sequence. Every time the camera snaps a photo, move the camera forward in a lawnmower pattern. It is important to maintain 70-80% overlap between subsequent photos and passes. Keep the camera oriented straight down throughout the scan.
+7. Press the shutter button to begin the image capture sequence. Every time the camera snaps a photo, move the camera forward in a lawnmower pattern. It is important to maintain 70-80% overlap between subsequent photos and passes. Keep the camera oriented straight down throughout the scan.
 
 Note: The camera is set to capture 299 consecutive photos. If at anytime you need to stop filming, simply press the "Menu" button. If your pass is greater than 299 photos, simply just press the shutter button again to restart the interval sequence.
 
