@@ -32,6 +32,12 @@ Contained in this document is the Standard Operating Procedure for raceway image
 ### **Raceway Image Capture**
 ***
 
+**Note:** 
+The methods we used changed over time slightly due to increased visibility of recruits. This is what worked for us, however you may need to tailor these to your situation.
+No skeleton deposited, hardly visible to human eye: Camera was kept a distance of ~6.5 centimeters from rack. For our racks, it helped to try to keep 3 rack holes (4.5cm) vertically and 4 rack holes (6cm) horizontally in the frame to ensure height stays consistent.
+Skeleton being deposited, more visible to human eye: Camera was kept a distance of ~8cm from rack. For our racks, it helped to try to keep 4 rack holes (6cm) vertically and 5 rack holes (7.5cm) horizontally in the frame to ensure height stays consistent.
+
+
 1. Before you begin, procure a waterproof white light (example: Suptig Diving Light) and if possible, attach it to your camera. Then, ensure your camera has the correct settings. Settings can be found [here]().
 
 2. Add scale bars to your rack. Glue the scale bars to plugs and allow them to cure and soak before doing a scan. When gluing scale bars it is advised that you cut a standard ruler on waterproof paper in half (15 cm) and put the plugs in the egg crate at the desired distance apart so that you ensure they remain flat during scans. The scale bars should be placed around each outside edge of your group of plugs. If you have Agisoft Metashape Pro there are printable markers under the Tools &rarr Markers &rarr Print Markers... which should be glued to plugs, allowed to cure and soak, and distributed at all four corners and in the middle of your group of plugs containing recruits. These markers assist the software in generating products downstream however they are not necessary. 
@@ -40,7 +46,7 @@ Contained in this document is the Standard Operating Procedure for raceway image
 
 4. Place the camera in the water, tilt the lens upward to remove any bubbles obscuring the lens. Position the camera to maintain the same altitude throughout the image capture process and ensure both level bars are green. Depending on the size of the recruits the altitude of your camera should change. 
 
-5. Turn on your white light and position it at a 45 degree angle relative to your camera. Look through the viewfinder to make sure that the subject is illuminated and that shadows are reduced as much as possible.
+5. Turn on your white light and position it at a 45 degree angle relative to your camera. Look through the viewfinder to make sure that the subject is illuminated and that shadows are reduced as much as possible. When on the edges of frame light may need to be tilted more toward 90 degrees to reduce shadows.
 
 6. Position the camera face down and start at the bottom left or right corner of the subject. Make sure that <20% of the subject is in frame, with the remaining portion of your viewfinder being taken up by raceway.
 
