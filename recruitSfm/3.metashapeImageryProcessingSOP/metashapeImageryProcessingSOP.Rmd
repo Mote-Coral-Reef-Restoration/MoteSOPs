@@ -71,4 +71,4 @@ Contained in this document is the Standard Operating Procedure for model generat
 
 16.	Export the orthomosaic by selecting File &rarr Export &rarr Export Orthomosaic.
 
-**Note:** The above steps are for single model generation however if you want to do High-Throughput there's an additional Standard Operating Procedure that can be found [here](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/smallScaleSfm/3.metashapeImageryProcessingSOP).
+**Note:** The above steps are for single model generation however if you want to do High-Throughput there is an additional Standard Operating Procedure that can be found [here](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/smallScaleSfm/3.metashapeImageryProcessingSOP).
