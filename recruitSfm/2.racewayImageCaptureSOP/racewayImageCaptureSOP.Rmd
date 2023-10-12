@@ -35,7 +35,7 @@ Contained in this document is the Standard Operating Procedure for raceway image
 **Note:** 
 The methods we used changed over time slightly due to increased visibility of recruits. This is what worked for us, however you may need to tailor these to your situation.
 No skeleton deposited, hardly visible to human eye: Camera was kept a distance of ~6.5 centimeters from rack. For our racks, it helped to try to keep 3 rack holes (4.5cm) vertically and 4 rack holes (6cm) horizontally in the frame to ensure height stays consistent.
-Skeleton being deposited, more visible to human eye: Camera was kept a distance of ~8cm from rack. For our racks, it helped to try to keep 4 rack holes (6cm) vertically and 5 rack holes (7.5cm) horizontally in the frame to ensure height stays consistent.
+Skeleton being deposited, more visible to human eye: Camera was kept a distance of ~8cm from rack. For our racks, it helped to try to keep 4 rack holes (6cm) vertically and 5 rack holes (7.5cm) horizontally in the frame to ensure height stays consistent. When they begin to grow their polyps and produce secondary polyps and it becomes difficult to define their borders later in the pipeline as well as distinguish between different recruits. To combat this, we used a baster to make them withdraw their polyps before and during each scan as needed. 
 
 
 1. Before you begin, procure a waterproof white light (example: Suptig Diving Light) and if possible, attach it to your camera. Then, ensure your camera has the correct settings. Settings can be found [here]().
