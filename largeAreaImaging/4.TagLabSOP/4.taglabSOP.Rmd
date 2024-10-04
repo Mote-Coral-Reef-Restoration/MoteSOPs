@@ -59,6 +59,29 @@ Any confusion on program usage not addressed in this protocol may be resolved th
 
 7. You should now be able to see your imported image on screen and are ready to begin analyzing your image. 
 
+#Opening NOAA Taglab Fork
+***
+
+1. Open the Command or Anaconda prompt on your system.
+
+2. Enter the following comands one at a time:
+  * conda activate Taglab -- changing from base directory to Taglab
+  *cd "paste your file path to Taglab folder here" -- changing working directory to correct file path
+  * python Taglab.py -- opening Taglab
+
+Note: This new version of Taglab does not work on MAC systems as of yet.
+
+Reopening Working Files
+***
+
+1. Recently accessed files may appear when File drop-down is clicked.
+
+2. If files do not appear in drop-down, click Open Project (shortcut Ctrl + O), also in File drop down.
+
+3. Navigate to the .JSON file you desire to open, and select.
+
+4. If file paths have been changed since last access, Taglab will present a prompt to re-establish those file paths. Follow the instruction of the prompts and select the Ortho-images it seeks. File names will be given by Taglab to make it clear which time point you should be selecting.
+
 
 # Image Analysis
 ***
