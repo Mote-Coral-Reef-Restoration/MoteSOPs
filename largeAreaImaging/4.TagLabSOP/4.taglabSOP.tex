@@ -1,0 +1,339 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Mote Marine Laboratory TagLab Analysis Standard Operating Procedure},
+  pdfauthor={Written by: Gabrielle D'Alonzo (gdalonzo@mote.org)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Mote Marine Laboratory TagLab Analysis Standard Operating
+Procedure}
+\author{Written by: Gabrielle D'Alonzo
+(\href{mailto:gdalonzo@mote.org}{\nolinkurl{gdalonzo@mote.org}})}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{last-updated-gabrielle-dalonzo-october-11-2024}{%
+\subsubsection{Last Updated: Gabrielle D'Alonzo, October 11,
+2024}\label{last-updated-gabrielle-dalonzo-october-11-2024}}
+
+\hypertarget{overview}{%
+\subsection{Overview}\label{overview}}
+
+Contained in this document is the Standard Operating Procedure for the
+analysis of large orthophotos/orthomosaics using the open-source
+software TagLab. The preexisting documentation for TagLab that can be
+found on their \href{https://taglab.isti.cnr.it/}{website} and
+\href{https://github.com/cnr-isti-vclab/TagLab}{GitHub} are great
+resources that lay out the basic
+\href{https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab}{installation},
+and \href{https://taglab.isti.cnr.it/docs}{tools} to successfully
+navigate TagLab. These resources also include some potentially relevant
+\href{https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab}{troubleshooting
+tips}. Any confusion on program usage not addressed in this protocol may
+be resolved there. Additional Standard Operating Procedures for other
+aspects within the photogrammetric pipeline can be found
+\href{https://github.com/icombs2017/MoteSOPs}{here}. The NOAA fork (new
+version) of Taglab can be accessed through this github link for any
+information regarding new features and installation:
+\url{https://github.com/Jordan-Pierce/TagLab?tab=readme-ov-file}
+
+\hypertarget{project-set-up}{%
+\section{Project Set-Up}\label{project-set-up}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Open TagLab using either the desktop shortcut or the TagLab.py file
+  located in your local GitHub/TagLab folder.
+\item
+  To load an image, select Project → Add New Map.
+\item
+  Fill out the relevant fields
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Map Name: What you want to call that specific image
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Mote uses the following naming convention
+      YYYY\_MM\_DD\_Site-Name.fileFormat ex: 2022\_09\_21\_Q-9.tiff
+    \end{itemize}
+  \item
+    RGB Image: either type in the file path to your image or click the
+    symbol to the right ``\ldots{}'' and navigate via your file browser
+  \item
+    Depth Image: do the same thing if you have a Digital Elevation Model
+    (DEM) coregistered to your image
+  \item
+    Acquisition Date: Fill in the date for when the imagery was captured
+    format: YYYY-MM-DD
+  \item
+    Pixel size (mm): How long one pixel is (mm), this can also be done
+    post-hoc using the measure tool
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Note:} \emph{Map Name}, \emph{Path to RGB Image}, and
+\emph{Acquisition Date} are necessary in order to start your project.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Click Apply.
+\item
+  Repeat this for every image you wish to analyze in your particular
+  project
+\end{enumerate}
+
+\textbf{Note:} Our projects tend to include a single site over multiple
+time points and we add subsequent time points to the project as they
+enter the analysis pipelines.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Save the project by navigating to File → Save As and then save the
+  project within the ``TagLab'' folder of whatever project you are
+  working on
+\end{enumerate}
+
+\textbf{Note:} This is Mote specific, but it is wise to save your TagLab
+Project in the same folder as whatever images are associated with it, if
+there are multiple images within multiple folders, make sure the TagLab
+Project is a level above all of the folders that contain images for that
+specific project.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  You should now be able to see your imported image on screen and are
+  ready to begin analyzing your image.
+\end{enumerate}
+
+\#Opening NOAA Taglab Fork ***
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Open the Command or Anaconda prompt on your system.
+\item
+  Enter the following comands one at a time:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  conda activate Taglab -- changing from base directory to Taglab *cd
+  ``your/file/path/to/Taglab/folder/goes/here'' -- changing working
+  directory to correct file path
+\item
+  python Taglab.py -- opening Taglab
+\end{itemize}
+
+Note: This new version of Taglab does not work on MacOS as of yet.
+
+Reopening Working Files ***
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Recently accessed files may appear when File drop-down is clicked.
+\item
+  If files do not appear in drop-down, click Open Project (shortcut Ctrl
+  + O), also in File drop down.
+\item
+  Navigate to the .JSON file you desire to open, and select.
+\item
+  If file paths have been changed since last access, Taglab will present
+  a prompt to re-establish those file paths. Follow the instruction of
+  the prompts and select the Ortho-images it seeks. File names will be
+  given by Taglab to make it clear which time point you should be
+  selecting.
+\end{enumerate}
+
+\hypertarget{image-analysis}{%
+\section{Image Analysis}\label{image-analysis}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  To set the dictionary, navigate to Project → Labels Dictionary
+  Editor\ldots{} and select Load.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Navigate to where you are storing your dictionary
+  \item
+    Alternatively, you can build your own
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Select an RGB color
+    \item
+      Add the label name
+    \item
+      select ``Add''
+    \item
+      Repeat this for as many entries as you need, alternatively, this
+      can be done piecemeal while you segment
+    \end{itemize}
+  \end{itemize}
+\item
+  Since scale was not set at the inception of the project, before we
+  begin segmenting we must set the scale. Navigate to the Measure Tool,
+  ninth on the list in the left hand tool bar (Shortcut: 9)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If you know your mm/pixel measurements you can input that manually
+  \item
+    If not, select ``Set new pixel size''
+  \item
+    Use your cursor to select two ends of a known distance
+  \item
+    Enter your known distance (in mm) and select OK
+  \item
+    Measure that known distance, or another known distance using the
+    same tool to double check that your scale was set correctly
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Note:} We use scale bars with their centers spaced 50cm apart
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  To set your working area navigate to Project → Set Working Area
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Select the square with a cursor (to the left of the ``Set'' button)
+  \item
+    Drag the square to encompass your working area
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Note:} We delineate our working areas using markers/pins
+
+\textbf{Note:} You can enter your working area manually using local
+coordinates, but this is not recommended.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  You can then use the Create Grid tool to make a grid to place over the
+  working area. This breaks the whole ortho down into more manageable
+  pieces for more thorough segmentation.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In addition, Active/Deactivate Grid Operations allows for boxes of
+    the grid to be marked as complete, incomplete, or empty to help
+    track segmentation progress through the whole ortho.
+  \end{itemize}
+\item
+  Begin segmenting your image
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A list of the tools and functions can be found
+    \href{https://taglab.isti.cnr.it/docs}{here}
+  \item
+    We tend to use the Positive/negative clicks segmentation tool, the
+    4-clicks segmentation tool, and the Edit Border tool the most (in
+    that order)
+  \end{itemize}
+\item
+  Once the image is segmented, navigate to File → Export and export your
+  data in your preferred format
+\end{enumerate}
+
+\textbf{Note:} We normally export as a Data Table for downstream
+statistical analysis and data visualization in R. However, you might
+find other formats more or less useful depending on your research
+questions.
+
+\end{document}

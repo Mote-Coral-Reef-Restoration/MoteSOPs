@@ -18,7 +18,7 @@ knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
 library(magrittr)
 ```
 <!-- if updating, make sure you change name below -->
-### Last Updated: Ian Combs, `r Sys.Date() %>% format(format="%B %d, %Y")`
+### Last Updated: Gabrielle D'Alonzo, `r Sys.Date() %>% format(format="%B %d, %Y")`
 
 <br><br>
 
@@ -28,6 +28,7 @@ Contained in this document is the Standard Operating Procedure for the analysis 
 The preexisting documentation for TagLab that can be found on their  [website](https://taglab.isti.cnr.it/) and [GitHub](https://github.com/cnr-isti-vclab/TagLab) are great resources that lay out the basic [installation](https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab), and [tools](https://taglab.isti.cnr.it/docs) to successfully navigate TagLab. 
 These resources also include some potentially relevant [troubleshooting tips](https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab). 
 Any confusion on program usage not addressed in this protocol may be resolved there. Additional Standard Operating Procedures for other aspects within the photogrammetric pipeline can be found [here](https://github.com/icombs2017/MoteSOPs).
+The NOAA fork (new version) of Taglab can be accessed through this github link for any information regarding new features and installation: https://github.com/Jordan-Pierce/TagLab?tab=readme-ov-file
 
 
 # Project Set-Up
@@ -59,6 +60,7 @@ Any confusion on program usage not addressed in this protocol may be resolved th
 
 7. You should now be able to see your imported image on screen and are ready to begin analyzing your image. 
 
+
 #Opening NOAA Taglab Fork
 ***
 
@@ -66,10 +68,11 @@ Any confusion on program usage not addressed in this protocol may be resolved th
 
 2. Enter the following comands one at a time:
   * conda activate Taglab -- changing from base directory to Taglab
-  *cd "paste your file path to Taglab folder here" -- changing working directory to correct file path
+  *cd "your/file/path/to/Taglab/folder/goes/here" -- changing working directory to correct file path
   * python Taglab.py -- opening Taglab
 
-Note: This new version of Taglab does not work on MAC systems as of yet.
+Note: This new version of Taglab does not work on MacOS as of yet.
+
 
 Reopening Working Files
 ***
