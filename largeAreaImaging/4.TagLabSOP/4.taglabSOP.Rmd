@@ -68,7 +68,7 @@ The NOAA fork (new version) of Taglab can be accessed through this github link f
 
 2. Enter the following comands one at a time:
   * conda activate Taglab -- changing from base directory to Taglab
-  *cd "your/file/path/to/Taglab/folder/goes/here" -- changing working directory to correct file path
+  * cd "your/file/path/to/Taglab/folder/goes/here" -- changing working directory to correct file path
   * python Taglab.py -- opening Taglab
 
 Note: This new version of Taglab does not work on MacOS as of yet.
