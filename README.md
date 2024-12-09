@@ -7,6 +7,6 @@ A repository to house all of the SOPs and workflows that are used by the Coral R
 ### Sections of this Repository:
 [Large-Area Imaging Standard Operating Procedures](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/largeAreaImaging)<br>
 [Small-Scale Photogrammetry Standard Operating Procedures](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/smallScaleSfm)<br>
-[Miscellaneous Standard Operating Procedures](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/miscellaneousProtocols)
+[Miscellaneous Standard Operating Procedures](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/miscellaneousProtocols)<br>
 [Assisted Sexual Reproduction Structure-from-Motion Inventory Standard Operating Procedures](https://Mote-Coral-Reef-Restoration.github.io/MoteSOPs/recruitSfm)
 
