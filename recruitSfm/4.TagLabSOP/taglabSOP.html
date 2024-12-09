@@ -9,10 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Written by: Gabrielle D’Alonzo (gdalonzo@mote.org)" />
+<meta name="author" content="Lily Gullett" />
 
+<meta name="date" content="2023-09-29" />
 
-<title>Mote Marine Laboratory TagLab Analysis Standard Operating Procedure</title>
+<title>TagLab Analysis Standard Operating Procedure</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1590,24 +1591,25 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Mote Marine Laboratory TagLab Analysis
-Standard Operating Procedure</h1>
-<h4 class="author">Written by: Gabrielle D’Alonzo (<a href="mailto:gdalonzo@mote.org" class="email">gdalonzo@mote.org</a>)</h4>
+<h1 class="title toc-ignore">TagLab Analysis Standard Operating
+Procedure</h1>
+<h4 class="author">Lily Gullett</h4>
+<h4 class="date">2023-09-29</h4>
 
 </div>
 
 
 <!-- if updating, make sure you change name below -->
-<div id="last-updated-ian-combs-march-17-2023" class="section level3">
-<h3>Last Updated: Ian Combs, March 17, 2023</h3>
+<div id="last-updated-lily-gullett-december-09-2024" class="section level3">
+<h3>Last Updated: Lily Gullett, December 09, 2024</h3>
 <p><br><br></p>
 </div>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <p>Contained in this document is the Standard Operating Procedure for
-the analysis of large orthophotos/orthomosaics using the open-source
-software TagLab. The preexisting documentation for TagLab that can be
-found on their <a href="https://taglab.isti.cnr.it/">website</a> and <a href="https://github.com/cnr-isti-vclab/TagLab">GitHub</a> are great
+the analysis of single rack orthomosaics using the open-source software
+TagLab. The preexisting documentation for TagLab that can be found on
+their <a href="https://taglab.isti.cnr.it/">website</a> and <a href="https://github.com/cnr-isti-vclab/TagLab">GitHub</a> are great
 resources that lay out the basic <a href="https://github.com/cnr-isti-vclab/TagLab/wiki/Install-TagLab">installation</a>,
 and <a href="https://taglab.isti.cnr.it/docs">tools</a> to successfully
 navigate TagLab. These resources also include some potentially relevant
@@ -1632,12 +1634,8 @@ YYYY_MM_DD_Site-Name.fileFormat ex: 2022_09_21_Q-9.tiff</li>
 </ul></li>
 <li>RGB Image: either type in the file path to your image or click the
 symbol to the right “…” and navigate via your file browser</li>
-<li>Depth Image: do the same thing if you have a Digital Elevation Model
-(DEM) coregistered to your image</li>
 <li>Acquisition Date: Fill in the date for when the imagery was captured
 format: YYYY-MM-DD</li>
-<li>Pixel size (mm): How long one pixel is (mm), this can also be done
-post-hoc using the measure tool</li>
 </ul></li>
 </ol>
 <p><strong>Note:</strong> <em>Map Name</em>, <em>Path to RGB Image</em>,
@@ -1648,9 +1646,9 @@ project.</p>
 <li><p>Repeat this for every image you wish to analyze in your
 particular project</p></li>
 </ol>
-<p><strong>Note:</strong> Our projects tend to include a single site
-over multiple time points and we add subsequent time points to the
-project as they enter the analysis pipelines.</p>
+<p><strong>Note:</strong> Our project included all racks at a particular
+timepoint per Taglab project however you could do projects by different
+racks and add new timepoints as you collect data.</p>
 <ol start="6" style="list-style-type: decimal">
 <li>Save the project by navigating to File → Save As and then save the
 project within the “TagLab” folder of whatever project you are working
@@ -1696,38 +1694,36 @@ manually</li>
 same tool to double check that your scale was set correctly</li>
 </ul></li>
 </ol>
-<p><strong>Note:</strong> We use scale bars with their centers spaced
-50cm apart</p>
-<ol start="3" style="list-style-type: decimal">
-<li>To set your working area navigate to Project → Set Working Area
-<ul>
-<li>Select the square with a cursor (to the left of the “Set”
-button)</li>
-<li>Drag the square to encompass your working area</li>
-</ul></li>
-</ol>
-<p><strong>Note:</strong> We delineate our working areas using
-markers/pins</p>
-<p><strong>Note:</strong> You can enter your working area manually using
-local coordinates, but this is not recommended.</p>
+<p><strong>Note:</strong> If you want more precise measurement data for
+coral recruits, increase the distance by a factor of 10 (15mm becomes
+150mm).</p>
 <ol start="4" style="list-style-type: decimal">
 <li>You can then use the Create Grid tool to make a grid to place over
 the working area. This breaks the whole ortho down into more manageable
-pieces for more thorough segmentation.
+pieces for more thorough segmentation.</li>
+</ol>
+<ul>
+<li>You can change the size and placement of your graph in order to have
+each square encompass a single plug.
 <ul>
 <li>In addition, Active/Deactivate Grid Operations allows for boxes of
 the grid to be marked as complete, incomplete, or empty to help track
-segmentation progress through the whole ortho.</li>
+segmentation progress through the whole rack.</li>
 </ul></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
 <li>Begin segmenting your image
 <ul>
 <li>A list of the tools and functions can be found <a href="https://taglab.isti.cnr.it/docs">here</a></li>
-<li>We tend to use the Positive/negative clicks segmentation tool, the
-4-clicks segmentation tool, and the Edit Border tool the most (in that
-order)</li>
+<li>We tend to use the Positive/negative clicks segmentation tool to
+select each recruit, the Cut segmentation tool to separate recruits that
+are touching into their own segment, and the Edit Border tool the most
+(in that order)</li>
+<li>Make sure to save your project during segmentation, a good way is to
+save it when you reach the end of each row of plugs or grids.</li>
 </ul></li>
-<li>Once the image is segmented, navigate to File → Export and export
-your data in your preferred format</li>
+<li>Once the image is segmented, if you want the size data, the navigate
+to File → Export and export your data in your preferred format</li>
 </ol>
 <p><strong>Note:</strong> We normally export as a Data Table for
 downstream statistical analysis and data visualization in R. However,

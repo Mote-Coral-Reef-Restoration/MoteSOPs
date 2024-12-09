@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Ian Combs" />
+<meta name="author" content="Lily Gullett" />
 
-<meta name="date" content="2023-06-16" />
+<meta name="date" content="2023-09-28" />
 
 <title>Metashape Imagery Processing Standard Operating Procedure</title>
 
@@ -1593,15 +1593,15 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Metashape Imagery Processing Standard
 Operating Procedure</h1>
-<h4 class="author">Ian Combs</h4>
-<h4 class="date">2023-06-16</h4>
+<h4 class="author">Lily Gullett</h4>
+<h4 class="date">2023-09-28</h4>
 
 </div>
 
 
 <!-- if updating, make sure you change name below -->
-<div id="last-updated-ian-combs-june-16-2023" class="section level3">
-<h3>Last Updated: Ian Combs, June 16, 2023</h3>
+<div id="last-updated-lily-gullett-december-09-2024" class="section level3">
+<h3>Last Updated: Lily Gullett, December 09, 2024</h3>
 </div>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
@@ -1616,75 +1616,17 @@ photogrammetric pipeline can be found <a href="https://github.com/Mote-Coral-Ree
 <ol style="list-style-type: decimal">
 <li><p>Open Metashape and select Preferences. Under the GPU tab, make
 sure any available GPU devices are selected.</p></li>
-<li><p>The bath processes should already be made, and can be found at
-C:/PHOTOGRAMMETRY/Batch Processes. However, it is good to double check
-the files to make sure the settings are correct. The next steps are for
-High-Throughput, for single model generation skip to <strong>Step
-7</strong>. Before you begin importing photos and generating models, we
-will create and save several batch processes.</p>
-<ul>
-<li>Select <strong>Workflow</strong> → <strong>Batch
-Process</strong></li>
-<li>Select <strong>Add</strong>, select Job type: <strong>Align Photos
-</strong></li>
-<li>Apply to: <strong>All Chunks</strong>
-<ul>
-<li>Under settings, the <strong>Accuracy Value</strong> should be
-<strong>High</strong>. Select OK.</li>
-</ul></li>
-<li>Select the box <em>Save project after each step</em>
-<ul>
-<li>Name and save your batch process <em>Batch Align</em> or a similarly
-appropriate name.</li>
-</ul></li>
-</ul></li>
-<li><p>In the same window, select <strong>Remove</strong>, then select
-<strong>Add</strong>, <strong>Job Type: Build Dense Cloud</strong>,
-Apply to: <strong>All Chunks</strong>. The <strong>Quality</strong>
-setting should be set to <strong>High</strong>, if not, double click and
-select <strong>High</strong>. Select OK. Select the box <em>Save project
-after each step</em>, name and save your batch process <em>Batch Dense
-Cloud</em> or a similarly appropriate name.</p></li>
-<li><p>In the same window, select <strong>Remove</strong>, then select
-<strong>Add</strong>, Job Type: <strong>Build Mesh</strong>, Apply to:
-<strong>All Chunks</strong>. <strong>The Custom face count</strong>
-should be set to 1,000,000 for high accuracy. Select OK.</p></li>
-<li><p>In the same window, Select <strong>Add</strong>, Job type:
-<strong>Build Texture</strong>, Apply to: <strong>All Chunks</strong>.
-Select OK. Select the box <em>Save project after each step</em>, name
-and save your batch process <em>Batch Texture</em> or a similarly
-appropriate name.</p></li>
-<li><p>In the same window, select <strong>Remove</strong>, then select
-<strong>Add</strong>, Job Type: <strong>Export Model</strong>, Apply to:
-<strong>All Chunks</strong>. <strong>Path:</strong> Navigate to the
-folder where you wish to store your models. <strong>Texture
-Format:</strong> PNG, Select OK. Select the box “Save project after each
-step,” name and save your batch process “Batch Export” or a similarly
-appropriate name. Saving the file as {chunklabel} will name the file the
-same name as your chunk.</p></li>
-</ol>
-<p>Note: The reasoning behind the three separate batch processes is that
-there are important QA/QC procedures between the Alignment and Dense
-Cloud generations.</p>
-<ol start="7" style="list-style-type: decimal">
-<li><p>Select the Add Chunk icon in the Workspace Window. Right click on
-the new Chunk and select Add &gt; Add Photos. Navigate to your working
-directory and select all of the still images. Once imported, they will
-show up as a Chunk (set of photos). Rename the Chunk to distinguish this
-model from subsequent models. Repeat this process for all the remaining
-models you wish to make. Save the project.</p></li>
-<li><p>For single model generation: Select the Add Photos icon in the
-Workspace window. Navigate to your working directory and select all of
-the still images. Once imported, they will show up as a Chunk (set of
-photos). Save the project.</p></li>
+<li><p>Select the Add Photos icon in the Workspace window. Navigate to
+your working directory and select all of the still images. Once
+imported, they will show up as a Chunk (set of photos). Save the
+project.</p></li>
+<li><p>If you used markers, select Tools, hover over Markers, and select
+Detect Markers. This will assist the software with the photo alignment
+process, however they are only available in Metashape Pro and are not
+necessary for generation.</p></li>
 <li><p>Start the image alignment process by selecting Workflow, Align
 Photos. Set the Accuracy to High. This process may take some time, since
-it finds common points among the photos.</p>
-<ol style="list-style-type: lower-alpha">
-<li>For High-Throughput process: Start the image alignment process by
-selecting Workflow, Batch Processes. Load the first batch process you
-made “Batch Align.” Click OK.</li>
-</ol></li>
+it finds common points among the photos.</p></li>
 <li><p>Check the alignment by looking at the Photos window under View.
 Each photo will show up as a thumbnail; if it has aligned, you will see
 a check mark. You can also check the aligned photo placement in the
@@ -1707,22 +1649,14 @@ Z plane). The remaining steps only take into account what is located
 inside the Region. This is also a good time to remove any outliers or
 points you do not want in your model. You can do this by resizing the
 region or by using the selection tool, highlighting the undesirable
-points, and pressing delete.</p>
-<ol style="list-style-type: lower-alpha">
-<li>For High-Throughput: Ensure this is done for each Chunk.</li>
-</ol></li>
+points, and pressing delete.</p></li>
 <li><p>Once enough photos are aligned, select Build Dense Cloud under
-Workflow. Set the Quality to High and start the process.</p>
-<ol style="list-style-type: lower-alpha">
-<li>For High-Throughput: Select Workflow, Batch Processes. Load the
-second batch process you made “Batch Dense Cloud.” Click OK.</li>
-</ol></li>
+Workflow. Set the Quality to High and start the process.</p></li>
 <li><p>Once finished, you should have a decent representation of the
 model features built from many small points.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Check all angles of the point cloud, looking for aberrant features
-(“floaters”), or areas with moving features such as soft corals or
-trees.</li>
+(“floaters”).</li>
 <li>Since these will not be well represented in the finished model, they
 should be removed. Position the model so that the problem features are
 isolated from the other parts of the model (nothing behind the
@@ -1732,6 +1666,14 @@ toolbar.</li>
 <li>Don’t worry if this creates small gaps, as they will be filled in
 when the mesh is made. You do, however, have to remove all the problem
 features at this stage, otherwise you will have holes in your mesh.</li>
+<li>To ensure a cleaner looking dense cloud select Tools &amp;rarr Dense
+Cloud &amp;rarr Filter by Confidence. Then set the Max confidence to 1
+and click OK. After you have done this the dense cloud should show up
+with fewer points on it, many that may be outliers. Using the free form
+selection tool (next to the Navigation tool) select all points and
+delete. Then navigate to Tools &amp;rarr Dense Cloud &amp;rarr Reset
+Filter. Once you reset the filter the original dense cloud should return
+with less erratic points.</li>
 </ol></li>
 <li><p>Start the Build Mesh process from the Workflow menu. Change the
 Face Count to 1,000,000 for high accuracy. You can set the mesh higher,
@@ -1751,11 +1693,23 @@ the mesh.</li>
 <li><p>Start the Build Texture process from the Workflow menu, which may
 take another 5–10 minutes. Once completed, the photo texture will be
 mapped to the 3D model.</p></li>
-<li><p>Export the model by selecting File, Export, Export Model. Save it
-as a Wavefront OBJ (.obj) file. Make sure that Export Texture is
-selected in the following window. Saving as {chunklabel} will give your
-file names the same labels as your chunks.</p></li>
+<li><p>Once you have a mesh and texture, select Build Orthomosaic from
+the Workflow menu.</p>
+<ul>
+<li>Type: Planar</li>
+<li>Projection Plane</li>
+<li>Top XY OR Markers (if capable)</li>
+<li>Surface: Mesh<br />
+</li>
+<li>Blending Mode: Mosaic</li>
+<li>Max. dimensions (pix): 20,000</li>
+</ul></li>
+<li><p>Export the orthomosaic by selecting File &amp;rarr Export
+&amp;rarr Export Orthomosaic.</p></li>
 </ol>
+<p><strong>Note:</strong> The above steps are for single model
+generation however if you want to do High-Throughput there is an
+additional Standard Operating Procedure that can be found <a href="https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/smallScaleSfm/3.metashapeImageryProcessingSOP">here</a>.</p>
 </div>
 </div>
 

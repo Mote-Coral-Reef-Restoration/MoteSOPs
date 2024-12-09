@@ -11,10 +11,10 @@ This repository contains all of the Structure-from-Motion photogrammetry and Ass
 
 ### Repository contents:
 
-1. [GoPro Set Up](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/1.cameraSetUpSOP)
+1. [GoPro Set Up](https://Mote-Coral-Reef-Restoration.github.io/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/1.cameraSetUpSOP)
 
-2. [Raceway Image Capture](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/2.racewayImageCaptureSOP)
+2. [Raceway Image Capture](https://Mote-Coral-Reef-Restoration.github.io/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/2.racewayImageCaptureSOP)
 
-3. [Metashape Image Processing](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/3.metashapeImageryProcessingSOP)
+3. [Metashape Image Processing](https://Mote-Coral-Reef-Restoration.github.io/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/3.metashapeImageryProcessingSOP)
 
-4. [TagLab Imagery Analysis](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/4.TagLabSOP)
+4. [TagLab Imagery Analysis](https://Mote-Coral-Reef-Restoration.github.io/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/4.TagLabSOP)
