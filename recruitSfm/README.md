@@ -1,4 +1,4 @@
-# Large-Area Imaging Standard Operating Procedures
+# Recruit Structure-from-Motion Standard Operating Procedure
 ==========================================
 
 ### Ian Combs -- <icombs@mote.org>
@@ -13,7 +13,7 @@ This repository contains all of the Structure-from-Motion photogrammetry and Ass
 
 1. [GoPro Set Up](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/1.cameraSetUpSOP)
 
-2. [Raceway Image Capture](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/2.racewayimageCaptureSOP)
+2. [Raceway Image Capture](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/2.racewayImageCaptureSOP)
 
 3. [Metashape Image Processing](https://github.com/Mote-Coral-Reef-Restoration/MoteSOPs/recruitSfm/3.metashapeImageryProcessingSOP)
 
